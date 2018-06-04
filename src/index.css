@@ -3,5 +3,6 @@ body {
   padding: 0;
   font-family :monospace;
   word-wrap: break-word;
-  background-color: rgba(226, 200, 200, 0.82);
+  background-image: url("./Images/2.png.jpg");
+  
 }
