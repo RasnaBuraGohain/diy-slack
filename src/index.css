@@ -1,5 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family :cursive;
+  font-family :monospace;
+  word-wrap: break-word;
+  background-color: rgba(226, 200, 200, 0.82);
 }

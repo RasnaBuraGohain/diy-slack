@@ -3,7 +3,7 @@ import './App.css';
 import { connect } from 'react-redux'
 import Navigation from './Navigation'
 
-const Profile = () => <p>the Profile page</p>
+const Profile = () => <p>This is the Profile page</p>
 const Users = () => <p>Users List</p>
 const Channels = () => <p>This is the Channels page</p>
 const NotFound = () => <p>Error! 404</p>
