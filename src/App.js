@@ -3,13 +3,15 @@ import './App.css';
 import { connect } from 'react-redux'
 import Navigation from './Navigation'
 
+const Home = () => <p>Welcome to DIY - SLACK APP by Students of IntecBrussel</p>
 const Profile = () => <p>This is the Profile page</p>
 const Users = () => <p>Users List</p>
 const Channels = () => <p>This is the Channels page</p>
 const NotFound = () => <p>Error! 404</p>
 
 const routingTable = {
-  '/': <Profile />,
+  '/': <Home />,
+  '/profile': <Profile />,
   '/users': <Users />,
   '/channels': <Channels />,
 }
