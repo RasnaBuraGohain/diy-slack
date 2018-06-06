@@ -1,40 +1,27 @@
-import React, { Component } from 'react';
-import './App.css';
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import Navigation from './Navigation'
-
-const Home = () => <p>Welcome to DIY - SLACK APP by Students of IntecBrussel</p>
-const Profile = () => <p>This is the Profile page</p>
-const Users = () => <p>Users List</p>
-const Channels = () => <p>This is the Channels page</p>
-const NotFound = () => <p>Error! 404</p>
-
-const routingTable = {
-  '/': <Home />,
-  '/profile': <Profile />,
-  '/users': <Users />,
-  '/channels': <Channels />,
-}
+import { push } from 'redux-first-routing'
+import { match } from './router'
+import Nav from 'Components/Nav'
+import './App.css'
 
 class App extends Component {
   render() {
-    const {
-      location,
-    } = this.props
+    const { dispatch, loggedIn } = this.props
 
-    let page
-    const route = routingTable[location]
-    if (!route) {
-      page = <NotFound />
-    } else {
-      page = route
+    const { route, params } = match(this.props.location.pathname)
+    if (route.loggedIn && !loggedIn) {
+      dispatch(push('/'))
+      return null
     }
 
+    const Page = route.page
     return (
-      <div className="App">
-        <Navigation />
+      <div>
+        <Nav />
         <hr />
-        {page}
+        <Page {...params} />
+        <hr />
       </div>
     );
   }
@@ -42,6 +29,8 @@ class App extends Component {
 
 const mapStateToProps = (state) => ({
   location: state.router.pathname,
+  loggedIn: state.user.loggedIn,
+  state,
 })
 
 export default connect(mapStateToProps)(App);
