@@ -2,14 +2,12 @@ import { createStore, combineReducers, applyMiddleware } from 'redux'
 import { reducer as formReducer } from 'redux-form'
 import { createBrowserHistory, routerReducer, routerMiddleware, startListener } from 'redux-first-routing'
 import { reducer as userReducer, userMiddleware } from './user'
-
-
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 const history = createBrowserHistory()
 
 const reducer = combineReducers({
-  router: routerReducer,
+  location: routerReducer,
   user: userReducer,
   form: formReducer,
 

@@ -27,8 +27,8 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-  location: state.router.pathname,
+const mapStateToProps = state => ({
+  location: state.location,
   loggedIn: state.user.loggedIn,
   state,
 })

@@ -1,8 +1,6 @@
 import { createAction, handleActions, combineActions } from 'redux-actions';
 import axios from 'axios'
 
-// user middleware
-
 export const userMiddleware = store => next => action => {
     if (action.type.substr(0, 5) === 'USER_') {
         const res = next(action)

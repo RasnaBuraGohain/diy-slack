@@ -10,8 +10,9 @@ const Nav = ({ dispatch, username, loggedIn }) => {
       <Link to="/profile">Profile</Link>,
       <LogoutButton onLogout={() => dispatch(push("/"))} />,
     ] : [
-      <Link to="/register">Register</Link>,
-      <Link to="/login">Login</Link>,
+      <Link to="/register">REGISTER</Link>,
+
+      <Link to="/login">LOGIN</Link>,
     ]
 
   return (
@@ -22,7 +23,7 @@ const Nav = ({ dispatch, username, loggedIn }) => {
       {' '}
       <Link to="/users">USERS</Link>
       {' '}
-      <Link to="/channels">CHANNELS</Link>
+      <Link to="/channel">CHANNELS</Link>
       {' '}
       {userLinks}
     </nav>

@@ -8,10 +8,10 @@ import Channel from 'Pages/Channel'
 const Profile = ({ username }) => (
     <main>
         <h1>Welcome, {username}!</h1>
-        <p>What would you like to do?</p>
+        <p>Here you can -</p>
         <ul>
-            <li> See {Users} </li>
-            <li> Create {Channel} </li>
+            <li><b> See  <Users /></b></li>
+            <li><b>Create <Channel /></b> </li>
         </ul>
 
         <h1>Delete account</h1>
@@ -21,8 +21,8 @@ const Profile = ({ username }) => (
 )
 
 const mapStateToProps = state => ({
-    username: state.user.profile.username,
-    channel: state.user.profile.channel,
+    username: state.user.profile,
+    channel: state.user.channel,
 })
 
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form'
-import { channel } from 'store/channel'
+//import { channel } from 'store/channel'
 
 const TextField = ({ meta, input, ...props }) => {
     return (
@@ -36,7 +36,7 @@ const validate = ({ channel }) => {
     return errors
 }
 const onSubmit = ({ channel }, dispatch, props) => {
-    return dispatch(channel(channel))
+    return dispatch(channel)
 }
 const ChannelForm = reduxForm({
     form: 'channel',

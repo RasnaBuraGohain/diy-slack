@@ -1,7 +1,8 @@
 import React from 'react'
 import Link from 'Components/Link'
+import { connect } from 'react-redux'
 
-const WelcomeView = () => (
+const HomeView = () => (
     <main>
         <h1>Diy Slack</h1>
         <ul>
@@ -16,4 +17,4 @@ const WelcomeView = () => (
     </main>
 )
 
-export default WelcomeView
+export default connect()(HomeView)
