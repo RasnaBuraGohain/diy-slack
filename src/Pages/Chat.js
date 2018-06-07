@@ -3,8 +3,6 @@ import { connect } from 'react-redux'
 import { push } from 'redux-first-routing'
 import ChatForm from 'Components/ChatForm'
 
-
-
 const Chat = ({ dispatch }) => (
     <main>
         <ChatForm onChat={() => dispatch(push("/chat"))} />
