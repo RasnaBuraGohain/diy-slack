@@ -42,16 +42,16 @@ export const login = (username, password) => dispatch => {
     })
 }
 
-const registerStart = createAction('USER_REGISTER_START');
-const registerSuccess = createAction('USER_REGISTER_SUCCESS');
-const registerFail = createAction('USER_REGISTER_FAIL');
+const chatStart = createAction('USER_CHAT_START');
+const chatSuccess = createAction('USER_CHAT_SUCCESS');
+const chatFail = createAction('USER_CHAT_FAIL');
 
-export const register = (username, password) => dispatch => {
-    dispatch(registerStart())
-    return axios.post('/api/register', { username, password }).then(response => {
-        dispatch(registerSuccess(response.data.result))
+export const chat = (username) => dispatch => {
+    dispatch(chatStart())
+    return axios.post('/api/chat', { username }).then(response => {
+        dispatch(chatSuccess(response.data.result))
     }).catch(e => {
-        dispatch(registerFail())
+        dispatch(chatFail())
         throw e
     })
 }
@@ -85,7 +85,7 @@ const initialState = {
 }
 
 export const reducer = handleActions({
-    [combineActions(loginStart, registerStart)]: (state, action) => ({
+    [combineActions(loginStart, chatStart)]: (state, action) => ({
         inProgress: true,
         loggedIn: false,
         profile: null,
@@ -96,12 +96,12 @@ export const reducer = handleActions({
         loggedIn: false,
         profile: state.profile,
     }),
-    [combineActions(loginSuccess, registerSuccess)]: (state, action) => ({
+    [combineActions(loginSuccess, chatSuccess)]: (state, action) => ({
         inProgress: false,
         loggedIn: true,
         profile: action.payload,
     }),
-    [combineActions(loginFail, registerFail, logoutSuccess, deregisterSuccess, deregisterFail)]: (state, action) => ({
+    [combineActions(loginFail, chatFail, logoutSuccess, deregisterSuccess, deregisterFail)]: (state, action) => ({
         inProgress: false,
         loggedIn: false,
         profile: null,

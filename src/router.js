@@ -4,7 +4,7 @@ import Profile from './Pages/Profile'
 import Channel from './Pages/Channel'
 import Users from './Pages/Users'
 import Login from './Pages/Login'
-import Register from './Pages/Register'
+import Chat from './Pages/Chat'
 
 import NotFound from './Pages/NotFound'
 
@@ -13,7 +13,7 @@ const routes = [
     { path: '/profile', name: 'profile', page: Profile },
     { path: '/users', name: 'users', page: Users },
     { path: '/channel', name: 'channel', page: Channel },
-    { path: '/register', name: 'register', page: Register },
+    { path: '/chat', name: 'chat', page: Chat },
     { path: '/login', name: 'login', page: Login },
 
     { loggedIn: true, path: '/profile', name: 'profile', page: Profile },

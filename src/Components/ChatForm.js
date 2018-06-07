@@ -1,8 +1,8 @@
 import React from 'react'
 import { Field, reduxForm, SubmissionError } from 'redux-form'
-import { login } from 'store/user'
+import { chat } from 'store/user'
 
-const LoginFormView = ({ handleSubmit, error, invalid, submitting }) => {
+const ChatFormView = ({ handleSubmit, error, invalid, submitting }) => {
     return (
         <form onSubmit={handleSubmit}>
             {error && <div>{error}</div>}
@@ -10,10 +10,11 @@ const LoginFormView = ({ handleSubmit, error, invalid, submitting }) => {
             <div>
                 <label htmlFor="username">Username:</label>
                 <Field name="username" component="input" type="text" />
+
             </div>
 
             <button disabled={submitting} type="submit">
-                Login
+                Start Chatting
             </button>
         </form>
     )
@@ -29,8 +30,8 @@ const validate = ({ username }) => {
 }
 
 const onSubmit = ({ username }, dispatch, props) => {
-    return dispatch(login(username)).then(() => {
-        if (props.onLogin) props.onLogin()
+    return dispatch(chat(username)).then(() => {
+        if (props.onRegister) props.onRegister()
     }).catch(error => {
         throw new SubmissionError({
             '_error': error.response.data.error,
@@ -38,13 +39,11 @@ const onSubmit = ({ username }, dispatch, props) => {
     })
 }
 
-const LoginForm = reduxForm({
-    form: 'login',
+const ChatForm = reduxForm({
+    form: 'chat',
     validate,
     onSubmit,
-    initialValues: {
-        username: "rasna",
-    },
-})(LoginFormView)
 
-export default LoginForm
+})(ChatFormView)
+
+export default ChatForm

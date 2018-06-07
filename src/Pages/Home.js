@@ -13,7 +13,7 @@ const HomeView = () => (
             <li>Stay in Touch</li>
         </ul>
         <p>A simple chat room like SLACK</p>
-        <Link to="/login">Login</Link>
+        <Link to="/login">LOGIN</Link>
     </main>
 )
 
