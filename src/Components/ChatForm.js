@@ -8,7 +8,7 @@ const ChatFormView = ({ handleSubmit, error, invalid, submitting }) => {
             {error && <div>{error}</div>}
 
             <div>
-                <label htmlFor="username">Username:</label>
+                <label htmlFor="username">Send messages to Username:</label>
                 <Field name="username" component="input" type="text" />
 
             </div>

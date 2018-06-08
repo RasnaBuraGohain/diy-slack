@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import { push } from 'redux-first-routing'
 import { match } from './router'
 import Nav from 'Components/Nav'
+
+
 import './App.css'
 
 class App extends Component {
@@ -22,6 +24,8 @@ class App extends Component {
         <hr />
         <Page {...params} />
         <hr />
+
+
       </div>
     );
   }
