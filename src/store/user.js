@@ -32,9 +32,9 @@ const loginStart = createAction('USER_LOGIN_START');
 const loginSuccess = createAction('USER_LOGIN_SUCCESS');
 const loginFail = createAction('USER_LOGIN_FAIL');
 
-export const login = (username, password) => dispatch => {
+export const login = (username) => dispatch => {
     dispatch(loginStart())
-    return axios.post('/api/login', { username, password }).then(response => {
+    return axios.post('/api/login', { username }).then(response => {
         dispatch(loginSuccess(response.data.result))
     }).catch(e => {
         dispatch(loginFail())

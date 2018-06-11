@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import './App.css';
 import { connect } from 'react-redux'
 import { send } from './store/websocket'
-import { login } from 'store/user'
 
 class Websocket extends Component {
   constructor() {
@@ -24,10 +22,6 @@ class Websocket extends Component {
       <div className="App">
         <div>
           <h1>Chat Room</h1>
-          <p>
-            {login}
-          </p>
-
           <p>An example of a call would be to send:</p>
           <ul>
             <li><code>{'{'}"command": "echo", "payload": "test"{'}'}</code></li>
