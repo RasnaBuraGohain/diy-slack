@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { connect } from 'react-redux'
 import { send } from './store/websocket'
+import { login } from 'store/user'
 
 class Websocket extends Component {
   constructor() {
@@ -22,12 +23,9 @@ class Websocket extends Component {
     return (
       <div className="App">
         <div>
-          <h1>Websocket example</h1>
+          <h1>Chat Room</h1>
           <p>
-            You will communicate with the backend by sending commands to them.
-            For now, the only command that's working is <code>echo</code>,
-            which will simply return the payload. You can send data to the websocket
-            using the form below.
+            {login}
           </p>
 
           <p>An example of a call would be to send:</p>
@@ -49,7 +47,7 @@ class Websocket extends Component {
           </button>
         </div>
         <div>
-          <p>Websocket activity:</p>
+          <p>Connection activity:</p>
           <ul>
             {messages.map(this.renderMessage)}
           </ul>
