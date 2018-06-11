@@ -6,7 +6,6 @@ import Websocket from 'Websocket'
 
 const Chat = ({ dispatch }) => (
     <main>
-
         <Websocket />
         <hr />
     </main>

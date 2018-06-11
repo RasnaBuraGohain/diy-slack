@@ -1,55 +1,41 @@
 import React, { Component } from 'react';
-import {login} from 'store/user'
-//import { connect } from 'react-redux'
+import './App.css';
+import { connect } from 'react-redux'
+import { send } from './store/websocket'
 
 class Websocket extends Component {
   constructor() {
     super()
-    this.state = {
-      ws: null,
-      connected: false,
-      messages: []
-    }
-  }
-
-  componentWillMount() {
-    const ws = new WebSocket("ws://localhost:8085/api/stream");
-
-    ws.onopen = (evt) => this.setState({
-      messages: [...this.state.messages, "you are online now"],
-      connected: true
-    })
-
-    ws.onclose = (evt) => this.setState({
-      messages: [...this.state.messages, "you are offline now"],
-      connected: false
-    })
-
-    ws.onmessage = (evt) => this.setState({
-      messages: [...this.state.messages, "message received: " + evt.data],
-    })
-
-    ws.onerror = (evt) => console.error("ERROR: " + evt.data);
-
-    this.setState({ ws })
+    this.state = { input: '' }
   }
 
   render() {
     const {
       input,
-      messages,
     } = this.state
+
+    const {
+      messages,
+      dispatch,
+    } = this.props
 
     return (
       <div className="App">
         <div>
-          <h1>Chat Room</h1>
+          <h1>Websocket example</h1>
           <p>
-            {login}
+            You will communicate with the backend by sending commands to them.
+            For now, the only command that's working is <code>echo</code>,
+            which will simply return the payload. You can send data to the websocket
+            using the form below.
           </p>
 
           <p>An example of a call would be to send:</p>
-          <pre>{'{'}"command": "echo", "payload": "test"{'}'}</pre>
+          <ul>
+            <li><code>{'{'}"command": "echo", "payload": "test"{'}'}</code></li>
+            <li><code>{'{'}"command": "name", "name": "olmo"{'}'}</code></li>
+            <li><code>{'{'}"command": "message", "user": "olmo", "data": "hello"{'}'}</code></li>
+          </ul>
         </div>
         <div>
           Send message:
@@ -58,8 +44,8 @@ class Websocket extends Component {
             onChange={(e) => this.setState({ input: e.target.value })}>
           </textarea>
 
-          <button onClick={() => this.state.ws.send(this.state.input)}>
-            send
+          <button onClick={() => { dispatch({ type: send, payload: input }) }}>
+            SEND
           </button>
         </div>
         <div>
@@ -81,4 +67,8 @@ class Websocket extends Component {
   }
 }
 
-export default Websocket;
+const mapStateToProps = (state) => ({
+  messages: state.messages.log,
+})
+
+export default connect(mapStateToProps)(Websocket);
