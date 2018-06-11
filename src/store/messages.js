@@ -7,13 +7,13 @@ const initialState = {
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
     case open:
-      return { log: [...state.log, "websocket connected"] }
+      return { log: [...state.log, "you are now online"] }
     case send:
       return { log: [...state.log, "sent: " + action.payload] }
     case message:
       return { log: [...state.log, "received: " + action.payload] }
     case close:
-      return { log: [...state.log, "websocket disconnected"] }
+      return { log: [...state.log, "you are offline"] }
     default:
       return state
   }
