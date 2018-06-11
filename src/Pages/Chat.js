@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 //import ChatForm from 'Components/ChatForm'
 import Websocket from 'Websocket'
 
-const Chat = ({ dispatch }) => (
+const Chat = () => (
     <main>
         <Websocket />
         <hr />
