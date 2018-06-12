@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { send } from './store/websocket'
+import { send, disconnect } from './store/websocket'
 
 class Websocket extends Component {
   constructor() {
@@ -36,7 +36,8 @@ class Websocket extends Component {
             onChange={(e) => this.setState({ input: e.target.value })}>
           </textarea>
 
-          <button onClick={() => { dispatch({ type: send, payload: input }) }}>
+          <button onClick={() => { dispatch({ type: send, payload: input }) }}
+            disabled={disconnect}>
             SEND
           </button>
         </div>

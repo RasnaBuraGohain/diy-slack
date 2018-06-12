@@ -15,6 +15,11 @@ export const reducer = (state = initialState, action) => {
     case message:
       // check if the action.payload is 'name' command
       // and that there is no error
+      if(
+          action.payload === "name")
+      break;
+      else
+
       return {
         connected: true,
         name: action.payload.name,
