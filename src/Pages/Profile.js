@@ -1,6 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import DeregisterForm from 'Components/DeregisterForm'
 
 import Users from 'Pages/Users'
 import Channel from 'Pages/Channel'
@@ -16,7 +15,6 @@ const Profile = ({ username }) => (
 
         <h1>Delete account</h1>
         <p>Warning, this will permanently delete your account. Your invitation code remains invalidated.</p>
-        <DeregisterForm />
     </main>
 )
 

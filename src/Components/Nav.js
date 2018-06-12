@@ -30,8 +30,8 @@ const Nav = ({ dispatch, username, loggedIn }) => {
   )
 }
 const mapStateToProps = state => ({
-  loggedIn: state.user.loggedIn,
-  username: state.user.loggedIn ? state.user.profile.username : '',
+  loggedIn: false,
+  username: 'rasna',
 })
 
 export default connect(mapStateToProps)(Nav)

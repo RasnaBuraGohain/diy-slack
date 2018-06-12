@@ -25,8 +25,8 @@ class Websocket extends Component {
           <p>An example of a call would be to send:</p>
           <ul>
             <li><code>{'{'}"command": "echo", "payload": "test"{'}'}</code></li>
-            <li><code>{'{'}"command": "name", "name": "olmo"{'}'}</code></li>
-            <li><code>{'{'}"command": "message", "user": "olmo", "data": "hello"{'}'}</code></li>
+            <li><code>{'{'}"command": "name", "name": "rasna"{'}'}</code></li>
+            <li><code>{'{'}"command": "message", "user": "rasna", "data": "hello"{'}'}</code></li>
           </ul>
         </div>
         <div>

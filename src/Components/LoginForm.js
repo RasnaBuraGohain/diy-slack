@@ -1,6 +1,6 @@
 import React from 'react'
-import { Field, reduxForm, SubmissionError } from 'redux-form'
-import { login } from 'store/user'
+import { Field, reduxForm } from 'redux-form'
+import { send } from 'store/websocket'
 
 const LoginFormView = ({ handleSubmit, error, invalid, submitting }) => {
     return (
@@ -29,13 +29,12 @@ const validate = ({ username }) => {
 }
 
 const onSubmit = ({ username }, dispatch, props) => {
-    return dispatch(login(username)).then(() => {
-        if (props.onLogin) props.onLogin()
-    }).catch(error => {
-        throw new SubmissionError({
-            '_error': error.response.data.error,
-        })
-    })
+    const command = {
+        command: "name",
+        name: username,
+    }
+
+    dispatch({ type: send, payload: command })
 }
 
 const LoginForm = reduxForm({
