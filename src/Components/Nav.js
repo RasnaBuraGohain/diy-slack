@@ -2,13 +2,13 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { push } from 'redux-first-routing'
 import Link from 'Components/Link'
-import LogoutButton from 'Components/LogoutButton';
+import DisconnectButton from 'Components/DisconnectButton';
 
 const Nav = ({ dispatch, username, loggedIn }) => {
   const userLinks = loggedIn ?
     [
       <Link to="/profile">Profile</Link>,
-      <LogoutButton onLogout={() => dispatch(push("/"))} />,
+      <DisconnectButton onDisconnect={() => dispatch(push("/"))} />,
     ] : [
       <Link to="/chat">CHAT</Link>,
 
@@ -30,7 +30,7 @@ const Nav = ({ dispatch, username, loggedIn }) => {
   )
 }
 const mapStateToProps = state => ({
-  loggedIn: false,
+  connected: false,
   username: 'rasna',
 })
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form'
-//import { channel } from 'store/channel'
+import { send } from 'store/websocket'
 
 const TextField = ({ meta, input, ...props }) => {
     return (
@@ -36,7 +36,12 @@ const validate = ({ channel }) => {
     return errors
 }
 const onSubmit = ({ channel }, dispatch, props) => {
-    return dispatch(channel)
+    const command = {
+        command: "channel",
+        
+    }
+
+    dispatch({ type: send, payload: command })
 }
 const ChannelForm = reduxForm({
     form: 'channel',

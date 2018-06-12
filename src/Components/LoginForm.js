@@ -11,9 +11,9 @@ const LoginFormView = ({ handleSubmit, error, invalid, submitting }) => {
                 <label htmlFor="username">Username:</label>
                 <Field name="username" component="input" type="text" />
             </div>
-
+            
             <button disabled={submitting} type="submit">
-                Login
+                LOGIN
             </button>
         </form>
     )

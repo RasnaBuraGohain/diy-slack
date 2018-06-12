@@ -1,34 +1,32 @@
-import { createAction, handleActions, combineActions } from 'redux-actions';
-import axios from 'axios'
-
-const channelStart = createAction('CHANNEL_CHANNEL_START');
-const channelSuccess = createAction('CHANNEL_CHANNEL_SUCCESS');
-const channelFail = createAction('CHANNEL_CHANNEL_FAIL');
-
-export const channel = (channel) => dispatch => {
-    dispatch(channelStart())
-    return axios.post('/api/channel', { channel }).then(response => {
-        dispatch(channelSuccess(response.data.result))
-    }).catch(e => {
-        dispatch(channelFail())
-        throw e
-    })
-}
+import { message, open, close } from './websocket'
 
 const initialState = {
-    inProgress: true,
-
+  connected: false,
+  name: null,
+  channel: null,
 }
 
-export const reducer = handleActions({
-    [channelStart]: (state, action) => ({
-        ...state,
-        inProgress: true,
-    }),
-
-    [combineActions(channelSuccess)]: (state, action) => ({
-        inProgress: false,
-
-    }),
-
-}, initialState)
+export const reducer = (state = initialState, action) => {
+  switch (action.type) {
+    case open:
+      return {
+        connected: true,
+        name :null,
+        channel: null,
+      }
+    case message:
+      const command = action.payload
+      if(command.error === "channel")
+      break;
+      else
+      return {
+        connected: true,
+        name : action.payload.name,
+        channel: action.payload.channel
+      }
+    case close:
+      return initialState
+    default:
+      return state
+  }
+}

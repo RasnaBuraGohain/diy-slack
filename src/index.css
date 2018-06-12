@@ -5,8 +5,9 @@
 }
 body {
   font-family:'Courier New', Courier, monospace;
-  background-image: url("./Images/4.jpg");
-  background-size: 100%;
+  background-image: url("./Images/23.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
   text-align: center;
 }
 textarea {

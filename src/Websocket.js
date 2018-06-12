@@ -14,7 +14,6 @@ class Websocket extends Component {
     } = this.state
 
     const {
-      messages,
       dispatch,
     } = this.props
 
@@ -41,23 +40,11 @@ class Websocket extends Component {
             SEND
           </button>
         </div>
-        <div>
-          <p>Connection activity:</p>
-          <ul>
-            {messages.map(this.renderMessage)}
-          </ul>
-        </div>
+        
       </div>
     );
   }
 
-  renderMessage(message, idx) {
-    return (
-      <li key={idx}>
-        <pre>{message}</pre>
-      </li>
-    )
-  }
 }
 
 const mapStateToProps = (state) => ({
