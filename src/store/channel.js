@@ -22,7 +22,7 @@ export const reducer = (state = initialState, action) => {
       return {
         connected: true,
         name : action.payload.name,
-        channel: action.payload.channel
+        channel: action.payload.channelName
       }
     case close:
       return initialState
