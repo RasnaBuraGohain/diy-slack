@@ -40,7 +40,7 @@ class Websocket extends Component {
             SEND
           </button>
         </div>
-        
+
       </div>
     );
   }

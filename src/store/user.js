@@ -14,13 +14,13 @@ export const reducer = (state = initialState, action) => {
       }
     case message:
       const command = action.payload
-      if(command.error === "name")
-      break;
+      if (command.error === "name")
+        break;
       else
-      return {
-        connected: true,
-        name: action.payload.name,
-      }
+        return {
+          connected: true,
+          name: action.payload.name,
+        }
     case close:
       return initialState
     default:
