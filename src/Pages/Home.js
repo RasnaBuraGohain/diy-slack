@@ -1,20 +1,19 @@
 import React from 'react'
-import Link from 'Components/Link'
+//import Link from 'Components/Link'
 import { connect } from 'react-redux'
+import Login from './Login'
+import Welcome from './Welcome.svg'
 
 const HomeView = () => (
-    <main>
-        <h1>Diy Slack</h1>
-        <ul>
-            <li>Create Profile</li>
-            <li>Connect with Friends or Colleagues</li>
-            <li>Chat</li>
-            <li>Create Channels</li>
-            <li>Stay in Touch</li>
-        </ul>
-        <p>A simple chat room like SLACK</p>
-        <Link to="/login">LOGIN</Link>
-    </main>
+    <div class="home-page">
+
+        <h1>Welcome to Diy Slack</h1>
+        <img src={Welcome} alt="welcome" width="800" height="200">
+        </img>
+        <br />
+        <Login />
+
+    </div>
 )
 
 export default connect()(HomeView)

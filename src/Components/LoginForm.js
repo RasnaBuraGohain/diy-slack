@@ -2,14 +2,14 @@ import React from 'react'
 import { Field, reduxForm } from 'redux-form'
 import { send } from 'store/websocket'
 
-const LoginFormView = ({ handleSubmit, error, submitting }) => {
+const LoginFormView = ({ handleSubmit, error, validate, submitting }) => {
     return (
         <form onSubmit={handleSubmit}>
             {error && <div>{error}</div>}
 
-            <div>
+            <div class="pure-control-group">
                 <label htmlFor="username">Username:</label>
-                <Field name="username" component="input" type="text" />
+                <Field name="username" component="input" type="text" placeholder="Username" />
             </div>
 
             <button disabled={submitting} type="submit">

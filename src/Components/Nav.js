@@ -11,8 +11,7 @@ const Nav = ({ dispatch, username, loggedIn }) => {
       <DisconnectButton onDisconnect={() => dispatch(push("/"))} />,
     ] : [
       <Link to="/chat">CHAT</Link>,
-
-      <Link to="/login">LOGIN</Link>,
+      (' '),
     ]
 
   return (
@@ -30,8 +29,8 @@ const Nav = ({ dispatch, username, loggedIn }) => {
   )
 }
 const mapStateToProps = state => ({
-  connected: false,
-  username: 'rasna',
+  connected: true,
+  username: '',
 })
 
 export default connect(mapStateToProps)(Nav)

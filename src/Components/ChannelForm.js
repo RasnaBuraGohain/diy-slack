@@ -11,14 +11,14 @@ const TextField = ({ meta, input, ...props }) => {
 
 }
 
-const ChannelFormView = ({ handleSubmit, error, invalid, submitting }) => {
+const ChannelFormView = ({ handleSubmit, error, validate, submitting }) => {
     return (
         <form onSubmit={handleSubmit}>
             {error && <div>{error}</div>}
 
             <div>
-                <label htmlFor="channelName">Channel :</label>
-                <Field name="channelName" component={TextField} type="text" />
+                <label htmlFor="channelName">Create a Channel :</label>
+                <Field name="channelName" component={TextField} type="text" placeholder="Channel Name" />
             </div>
             <div>
                 <button disabled={submitting} type="submit">
@@ -30,18 +30,19 @@ const ChannelFormView = ({ handleSubmit, error, invalid, submitting }) => {
 }
 const validate = ({ channelName }) => {
     const errors = {}
-    if (!channelName ) {
-        errors.channelName  = 'missing channel name'
+    if (channelName === "") {
+        errors.channelName = 'missing channel name'
     }
     return errors
 }
-const onSubmit = ({ channelName  }, dispatch, props) => {
+const onSubmit = ({ channelName }, dispatch, props) => {
     const command = {
         command: "channel",
         channel: channelName,
     }
 
     dispatch({ type: send, payload: command })
+    return this.props.channelName
 }
 const ChannelForm = reduxForm({
     form: 'channel',
