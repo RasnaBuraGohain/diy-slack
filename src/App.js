@@ -18,7 +18,11 @@ class App extends Component {
       messages,
     } = this.props
     if (!connected) {
-      return <ConnectButton />
+      return (
+        <div className="App">
+          <ConnectButton />
+        </div>
+      )
     }
 
     if (connected) {
