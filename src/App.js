@@ -20,8 +20,11 @@ class App extends Component {
     } = this.props
     if (!connected) {
       return (
-        <div className="App">
-          <ConnectButton />
+        <div>
+          <div className="App">
+            <ConnectButton />
+          </div>
+          <Footer />
         </div>
       )
     }
