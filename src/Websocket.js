@@ -32,7 +32,7 @@ class Websocket extends Component {
           Send message:
           <textarea
             value={input}
-            onChange={(e) => this.setState({ input: e.target.value })}>
+            onChange={(e) => this.setState({ input: e.target.value })} placeholder="Write your message here..." >
           </textarea>
 
           <button onClick={() => { dispatch({ type: send, payload: input }) }}

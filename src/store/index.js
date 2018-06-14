@@ -5,6 +5,8 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 
 import { reducer as websocketReducer, middleware as websocketMiddleware } from './websocket'
 import { reducer as messagesReducer } from './messages'
+import { reducer as userReducer } from './user'
+
 
 const history = createBrowserHistory()
 
@@ -13,7 +15,10 @@ const reducer = combineReducers({
   form: formReducer,
   websocket: websocketReducer,
   messages: messagesReducer,
+  user: userReducer,
 })
+
+
 
 const middleware = applyMiddleware(routerMiddleware(history), websocketMiddleware("ws://localhost:8085/api/stream"))
 

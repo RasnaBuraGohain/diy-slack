@@ -1,6 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux'
-
 import Users from 'Pages/Users'
 import Channel from 'Pages/Channel'
 

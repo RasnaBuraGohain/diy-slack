@@ -1,10 +1,15 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { disconnect } from 'store/websocket'
 
-const DisconnectButton = ({ dispatch, onDisconnect }) => (
-    <button>
-        DISCONNECT
-    </button>
+const DisconnectButton = ({ dispatch }) => (
+    <button onClick={() => { dispatch({ type: disconnect }) }}>
+        Disconnect
+    </button >
 )
 
-export default connect()(DisconnectButton)
+const mapStateToProps = (state) => ({
+    connected: state.websocket.connected,
+})
+
+export default connect(mapStateToProps)(DisconnectButton)
