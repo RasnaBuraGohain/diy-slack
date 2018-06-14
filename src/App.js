@@ -4,19 +4,19 @@ import './App.css'
 //import { push } from 'redux-first-routing'
 //import { match } from './router'
 //import Nav from 'Components/Nav'
-//import Websocket from './Websocket'
-
+import Websocket from './Websocket'
 import DisconnectButton from './Components/DisconnectButton'
 import ConnectButton from './Components/ConnectButton'
 import LoginForm from './Components/LoginForm'
 import Footer from './Pages/Footer'
+import { loggedIn } from './Memserver'
 
 
 class App extends Component {
   render() {
     const {
       connected,
-
+      loggedIn,
     } = this.props
     if (!connected) {
       return (
@@ -42,6 +42,16 @@ class App extends Component {
         </div>
       )
     }
+    if (connected && loggedIn) {
+      return (
+        <div>
+          <div className="App">
+            <Websocket />
+          </div>
+          <Footer />
+        </div>
+      )
+    }
   }
 
 
@@ -52,6 +62,7 @@ const mapStateToProps = state => ({
   messages: state.messages.log,
   connected: state.websocket.connected,
   disconnected: state.websocket.disconnected,
+  loggedin: state.memserver.loggedin,
 })
 
 export default connect(mapStateToProps)(App);
