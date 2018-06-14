@@ -8,14 +8,15 @@ import './App.css'
 
 import DisconnectButton from './Components/DisconnectButton'
 import ConnectButton from './Components/ConnectButton'
-import LoginForm from './Components/LoginForm';
+import LoginForm from './Components/LoginForm'
+import Footer from './Pages/Footer'
 
 
 class App extends Component {
   render() {
     const {
       connected,
-      messages,
+
     } = this.props
     if (!connected) {
       return (
@@ -34,23 +35,12 @@ class App extends Component {
             <DisconnectButton />
             <hr />
           </div>
-          <footer>
-            <p>Connection activity:</p>
-            <ul>
-              {messages.map(this.renderMessage)}
-            </ul>
-          </footer>
+          <Footer />
         </div>
       )
     }
   }
-  renderMessage(message, idx) {
-    return (
-      <li key={idx}>
-        <pre>{message}</pre>
-      </li>
-    )
-  }
+
 
 }
 

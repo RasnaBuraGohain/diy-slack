@@ -5,7 +5,6 @@ import Channel from './Pages/Channel'
 import Users from './Pages/Users'
 import Login from './Pages/Login'
 import Chat from './Pages/Chat'
-
 import NotFound from './Pages/NotFound'
 
 const routes = [
