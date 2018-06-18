@@ -1,8 +1,6 @@
 import { message, open, close } from './websocket'
 
 const initialState = {
-  connected: false,
-  name: null,
   channel: null,
 }
 
@@ -10,8 +8,6 @@ export const reducer = (state = initialState, action) => {
   switch (action.type) {
     case open:
       return {
-        connected: true,
-        name: null,
         channel: null,
       }
     case message:
@@ -20,9 +16,7 @@ export const reducer = (state = initialState, action) => {
         break;
       else
         return {
-          connected: true,
-          name: action.payload.name,
-          channel: action.payload.channelName
+          channel: action.payload.channel
         }
     case close:
       return initialState

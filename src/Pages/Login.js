@@ -6,9 +6,8 @@ import LoginForm from 'Forms/LoginForm'
 const Login = ({ dispatch }) => (
     <main>
         <h1>Login</h1>
-        <LoginForm onChange={() => {
-
-            dispatch(push("/Chat"))
+        <LoginForm onSubmit={() => {
+            dispatch(push("/profile"))
         }} />
     </main>
 )

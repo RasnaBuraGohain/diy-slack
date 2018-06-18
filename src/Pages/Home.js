@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import Login from './Login'
+import Websocket from '../Websocket'
 import Welcome from './Welcome.svg'
 
 const HomeView = () => (
@@ -10,7 +10,7 @@ const HomeView = () => (
         </img>
         <br />
         <div >
-            <Login />
+            <Websocket />
         </div>
     </div>
 )

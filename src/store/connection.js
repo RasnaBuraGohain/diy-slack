@@ -3,6 +3,7 @@ const initialState = {
   connected: false,
   id: null,
   name: null,
+  channel: null,
 }
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -10,18 +11,21 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         connected: true,
-        id: '',
-        name: null,
       }
     case message:
-      if (!state.id && action.payload === "ok: login succesful") {
-        return {
-          ...state,
-          id: '',
-          name: action.payload.name,
-        }
+    if (state.id ) {
+      return {
+        ...state,
+        name: action.payload.name,
       }
-      return state
+    }
+    if (state.name) {
+      return {
+        ...state,
+        channel: [action.payload, ...state.channel]
+      }
+    }
+    return state
     case close:
       return initialState
     default:
