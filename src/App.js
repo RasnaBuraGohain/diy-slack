@@ -1,22 +1,20 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import './App.css'
-//import { push } from 'redux-first-routing'
-//import { match } from './router'
-//import Nav from 'Components/Nav'
+import Router from './Components/Router'
 import Websocket from './Websocket'
 import DisconnectButton from './Components/DisconnectButton'
 import ConnectButton from './Components/ConnectButton'
-import LoginForm from './Components/LoginForm'
+import LoginForm from './Forms/LoginForm'
 import Footer from './Pages/Footer'
-import { loggedIn } from './Memserver'
-
+import NotFound from './Pages/NotFound'
+import Home from './Pages/Home'
 
 class App extends Component {
   render() {
     const {
       connected,
-      loggedIn,
+      id,
     } = this.props
     if (!connected) {
       return (
@@ -42,7 +40,7 @@ class App extends Component {
         </div>
       )
     }
-    if (connected && loggedIn) {
+    if (connected && id) {
       return (
         <div>
           <div className="App">
@@ -52,6 +50,12 @@ class App extends Component {
         </div>
       )
     }
+    return (
+      <Router routes={{
+        '/': Home,
+        'error': NotFound,
+      }} />
+    )
   }
 
 
@@ -60,9 +64,9 @@ class App extends Component {
 const mapStateToProps = state => ({
   location: state.location,
   messages: state.messages.log,
-  connected: state.websocket.connected,
-  disconnected: state.websocket.disconnected,
-  loggedin: state.memserver.loggedin,
+  connected: state.connection.connected,
+  disconnected: state.connection.disconnected,
+  id: state.connection.id,
 })
 
 export default connect(mapStateToProps)(App);

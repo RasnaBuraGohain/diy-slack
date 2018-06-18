@@ -48,17 +48,4 @@ export const middleware = endpoint => store => {
   }
 }
 
-const initialState = {
-  connected: false,
-}
 
-export const reducer = (state = initialState, action) => {
-  switch (action.type) {
-    case open:
-      return { connected: true }
-    case close:
-      return { connected: false }
-    default:
-      return state;
-  }
-}

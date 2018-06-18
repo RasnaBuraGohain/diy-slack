@@ -1,5 +1,4 @@
 import React from 'react'
-//import Link from 'Components/Link'
 import { connect } from 'react-redux'
 import Login from './Login'
 import Welcome from './Welcome.svg'

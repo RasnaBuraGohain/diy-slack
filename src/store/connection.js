@@ -1,7 +1,8 @@
 import { open, close, message } from './websocket'
 const initialState = {
   connected: false,
-  loggedIn: false,
+  id: null,
+  name: null,
 }
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -11,10 +12,10 @@ export const reducer = (state = initialState, action) => {
         connected: true
       }
     case message:
-      if (!state.loggedIn && action.payload === "ok: login succesful") {
+      if (!state.id && action.payload === "ok: login succesful") {
         return {
           ...state,
-          loggedIn: true,
+          id: true,
         }
       }
 

@@ -9,7 +9,7 @@ const DisconnectButton = ({ dispatch }) => (
 )
 
 const mapStateToProps = (state) => ({
-    connected: state.websocket.connected,
+    connected: state.connection.connected,
 })
 
 export default connect(mapStateToProps)(DisconnectButton)

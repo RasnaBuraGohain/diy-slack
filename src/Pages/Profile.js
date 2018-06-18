@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import Users from 'Pages/Users'
 import Channel from 'Pages/Channel'
 
-//import {name} from './store/users'
 
 const Profile = ({ username }) => (
     <main>

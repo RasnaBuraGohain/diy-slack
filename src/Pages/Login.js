@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { push } from 'redux-first-routing'
-import LoginForm from 'Components/LoginForm'
+import LoginForm from 'Forms/LoginForm'
 
 const Login = ({ dispatch }) => (
     <main>
