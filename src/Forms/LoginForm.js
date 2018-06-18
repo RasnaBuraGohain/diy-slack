@@ -29,7 +29,6 @@ const validate = ({ username }) => {
     if (username === "") {
         errors.username = 'missing username'
     }
-
     return errors
 }
 
@@ -38,9 +37,7 @@ const onSubmit = ({ username }, dispatch) => {
         command: "name",
         name: username,
     }
-
     dispatch({ type: send, payload: command })
-
 }
 
 export default reduxForm({

@@ -6,9 +6,9 @@ import LoginForm from 'Forms/LoginForm'
 const Login = ({ dispatch }) => (
     <main>
         <h1>Login</h1>
-        <LoginForm onLogin={(event) => {
-            event.preventDefault()
-            dispatch(push("/chat"))
+        <LoginForm onChange={() => {
+
+            dispatch(push("/Chat"))
         }} />
     </main>
 )

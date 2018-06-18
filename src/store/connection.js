@@ -9,16 +9,18 @@ export const reducer = (state = initialState, action) => {
     case open:
       return {
         ...state,
-        connected: true
+        connected: true,
+        id: '',
+        name: null,
       }
     case message:
       if (!state.id && action.payload === "ok: login succesful") {
         return {
           ...state,
-          id: true,
+          id: '',
+          name: action.payload.name,
         }
       }
-
       return state
     case close:
       return initialState
