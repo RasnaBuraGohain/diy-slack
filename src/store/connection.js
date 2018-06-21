@@ -3,7 +3,6 @@ const initialState = {
   connected: false,
   id: null,
   name: null,
-  channel: null,
 }
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -13,19 +12,15 @@ export const reducer = (state = initialState, action) => {
         connected: true,
       }
     case message:
-    if (state.id ) {
-      return {
-        ...state,
-        name: action.payload.name,
+      if (action.error) {
+        return ('missing name')
       }
-    }
-    if (state.name) {
-      return {
-        ...state,
-        channel: [action.payload, ...state.channel]
+      const newState = {
+        connected: true,
+        name: action.payload,
       }
-    }
-    return state
+      return newState
+
     case close:
       return initialState
     default:

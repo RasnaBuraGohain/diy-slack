@@ -13,7 +13,7 @@ const ChannelForm = props => {
                         name="channel"
                         component="input"
                         type="text"
-                        placeholder="channel"
+                        placeholder="Channel"
                     />
                 </div>
             </div>
@@ -37,7 +37,7 @@ const onSubmit = ({ channel }, dispatch) => {
         command: "channel",
         channel: channel,
     }
-    dispatch({ type: send, payload: command +"#" })
+    dispatch({ type: send, payload: command + "#" })
 }
 
 export default reduxForm({

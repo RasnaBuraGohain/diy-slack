@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import Websocket from '../Websocket'
 import Welcome from './Welcome.svg'
+import Footer from './Footer'
 
 const HomeView = () => (
     <div class="home-page">
@@ -11,6 +12,7 @@ const HomeView = () => (
         <br />
         <div >
             <Websocket />
+            <Footer />
         </div>
     </div>
 )
