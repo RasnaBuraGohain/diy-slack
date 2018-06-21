@@ -10,13 +10,6 @@ const LoginForm = props => {
                 <label>Username</label>
                 <div>
                     <Field
-                        name="fullname"
-                        component="input"
-                        type="text"
-                        placeholder="Full Name"
-                    />
-                    <br />
-                    <Field
                         name="username"
                         component="input"
                         type="text"

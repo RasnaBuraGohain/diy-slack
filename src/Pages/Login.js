@@ -11,4 +11,3 @@ const Login = ({ dispatch }) => (
 )
 
 export default connect()(Login)
-
