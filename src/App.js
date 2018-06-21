@@ -8,9 +8,7 @@ import Footer from './Pages/Footer'
 import NotFound from './Pages/NotFound'
 import Home from './Pages/Home'
 import Profile from './Pages/Profile'
-//import LoginForm from './Forms/LoginForm'
-import Login from './Pages/Login'
-//import ChannelForm from './Forms/ChannelForm';
+import LoginForm from './Forms/LoginForm'
 
 
 class App extends Component {
@@ -35,10 +33,11 @@ class App extends Component {
     if (!name) {
       return (
         <div>
-          <div>
-            <Login />
-            <br />
+          <div className="App">
+            <LoginForm />
+            <hr />
             <DisconnectButton />
+            <hr />
           </div>
           <div className="sidebar">
             <h> Your User ID </h>

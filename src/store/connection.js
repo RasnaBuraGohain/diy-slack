@@ -24,6 +24,7 @@ export const reducer = (state = initialState, action) => {
           id: action.payload.id,
         }
       }
+
       return state
 
     case close:
