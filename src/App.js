@@ -16,6 +16,7 @@ class App extends Component {
     const {
       connected,
       name,
+      id,
     } = this.props
 
     if (!connected) {
@@ -33,20 +34,25 @@ class App extends Component {
       return (
         <div>
           <div className="App">
-          <LoginForm />
+            <LoginForm />
             <hr />
             <DisconnectButton />
             <hr />
+          </div>
+          <div className="sidebar">
+            <h> Your User ID </h>
+            <hr />
+            {id}
           </div>
           <Footer />
         </div>
       )
     }
-    
+
     return (
       <Router routes={{
         '/': Home,
-        '/profile' : Profile,
+        '/profile': Profile,
         'error': NotFound,
       }} />
     )
@@ -61,7 +67,7 @@ const mapStateToProps = state => ({
   connected: state.connection.connected,
   disconnected: !state.connection.connected,
   name: state.connection.name,
-  
+  id: state.connection.id,
 })
 
 export default connect(mapStateToProps)(App);

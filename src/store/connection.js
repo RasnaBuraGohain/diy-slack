@@ -1,9 +1,11 @@
 import { open, close, message } from './websocket'
+
 const initialState = {
   connected: false,
   id: null,
   name: null,
 }
+
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
     case open:
@@ -13,13 +15,17 @@ export const reducer = (state = initialState, action) => {
       }
     case message:
       if (action.error) {
-        return ('missing name')
+        return state
       }
-      const newState = {
-        connected: true,
-        name: action.payload,
+
+      if (action.payload.command === "id") {
+        return {
+          ...state,
+          id: action.payload.id,
+        }
       }
-      return newState
+
+      return state
 
     case close:
       return initialState
