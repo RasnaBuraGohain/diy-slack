@@ -24,6 +24,12 @@ export const reducer = (state = initialState, action) => {
           id: action.payload.id,
         }
       }
+      if (action.payload.command === "name") {
+        return {
+          ...state,
+          name: action.payload.name,
+        }
+      }
 
       return state
 

@@ -1,7 +1,7 @@
 import { message, close } from './websocket'
 
 const initialState = {
-  users: [],
+  users: [{}],
 }
 
 export const reducer = (state = initialState, action) => {
@@ -17,13 +17,6 @@ export const reducer = (state = initialState, action) => {
       }
 
       if (action.payload.command === 'disconnect') {
-
-        /*
-              state.users.filter(user => {
-                return user.id === action.payload.id
-              }),
-        */
-
         return {
           users: state.users.map(user => {
             return user.id === action.payload.id

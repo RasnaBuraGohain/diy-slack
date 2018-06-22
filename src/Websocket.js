@@ -46,6 +46,8 @@ class Websocket extends Component {
     const {
       dispatch,
       disconnected,
+      name,
+      id,
     } = this.props
 
     return (
@@ -56,6 +58,11 @@ class Websocket extends Component {
           <ul>
             {examples.map(this.renderExample)}
           </ul>
+        </div>
+        <div className="sidebar">
+          Your User info:
+            <hr />
+          {id} {name}
         </div>
         <div>
           Send message:
@@ -78,6 +85,8 @@ class Websocket extends Component {
 
 const mapStateToProps = (state) => ({
   messages: state.messages.log,
+  name: state.connection.name,
+  id: state.connection.id,
 })
 
 export default connect(mapStateToProps)(Websocket);
