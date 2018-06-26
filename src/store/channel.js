@@ -1,25 +1,43 @@
-import { message, open, close } from './websocket'
+import { message, close } from './websocket'
 
 const initialState = {
-  channel: null,
+  channels: [],
 }
 
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case open:
-      return {
-        channel: null,
-      }
     case message:
-      const command = action.payload
-      if (command.error === "channel")
-        break;
-      else
+      if (action.payload.command === "connect") {
         return {
-          channel: action.payload.channel
+          users: [
+            ...state.users,
+            { id: action.payload.id, name: null, connected: true }
+          ],
         }
+      }
+
+      if (action.payload.command === 'disconnect') {
+        return {
+          users: state.users.map(user => {
+            return user.id === action.payload.id
+              ? { ...user, connected: false }
+              : user
+          }),
+        }
+      }
+
+      /*      if (... == disconnect)
+              ... map over the users, and if the user has the correct id, return a disconnected user
+      
+            if (... == name)
+            ... map over the users, and if the user has the correct id, return a  user with an updated name
+      */
+
+      return state
+
     case close:
       return initialState
+
     default:
       return state
   }

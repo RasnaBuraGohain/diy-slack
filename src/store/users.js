@@ -1,7 +1,7 @@
 import { message, close } from './websocket'
 
 const initialState = {
-  users: [{}],
+  users: [],
 }
 
 export const reducer = (state = initialState, action) => {
