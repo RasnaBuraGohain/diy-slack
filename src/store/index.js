@@ -7,6 +7,7 @@ import { reducer as connectionReducer } from './connection'
 import { middleware as websocketMiddleware } from './websocket'
 import { reducer as messagesReducer } from './messages'
 import { reducer as usersReducer } from './users'
+import {reducer as channelsReducer} from './channels'
 
 const history = createBrowserHistory()
 
@@ -16,6 +17,7 @@ const reducer = combineReducers({
   messages: messagesReducer,
   connection: connectionReducer,
   users: usersReducer,
+  channels: channelsReducer,
 })
 
 const store = createStore(reducer, composeWithDevTools(

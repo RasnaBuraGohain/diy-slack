@@ -26,15 +26,15 @@ export const reducer = (state = initialState, action) => {
         }
       }
 
-      /*if (action.payload.command === 'users') {
+      if (action.payload.command === 'name') {
         return {
-          users: state.users.map(user => {
-            return user.name === action.payload.name
+          users: state.users.filter(user => {
+            return user.id === action.payload.id && user.name === action.payload.name
               ? { ...user, connected: true }
               : user
           }),
         }
-      }*/
+      }
 
       return state
 
