@@ -62,7 +62,7 @@ class Websocket extends Component {
         <div className="sidebar">
           Your User info:
             <hr />
-          {id} {name}
+          {'ID : ' + id + ' Name : ' + name}
         </div>
         <div>
           Send message:
