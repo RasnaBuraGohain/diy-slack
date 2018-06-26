@@ -27,17 +27,17 @@ const ChannelForm = props => {
 const validate = ({ channel }) => {
     const errors = {}
     if (channel === "") {
-        errors.hannel = 'missing channel name'
+        errors.channel = 'missing channel name'
     }
     return errors
 }
 
 const onSubmit = ({ channel }, dispatch) => {
     const command = {
-        command: "channel",
-        channel: channel,
+        command: "join",
+        channel: '#' + channel,
     }
-    dispatch({ type: send, payload: command + "#" })
+    dispatch({ type: send, payload: command })
 }
 
 export default reduxForm({
@@ -45,7 +45,7 @@ export default reduxForm({
     validate,
     onSubmit,
     initialValues: {
-        channel: "#jobs",
+        channel: "jobs",
 
     },
 })(ChannelForm)

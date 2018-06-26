@@ -26,12 +26,15 @@ export const reducer = (state = initialState, action) => {
         }
       }
 
-      /*      if (... == disconnect)
-              ... map over the users, and if the user has the correct id, return a disconnected user
-      
-            if (... == name)
-            ... map over the users, and if the user has the correct id, return a  user with an updated name
-      */
+      /*if (action.payload.command === 'users') {
+        return {
+          users: state.users.map(user => {
+            return user.name === action.payload.name
+              ? { ...user, connected: true }
+              : user
+          }),
+        }
+      }*/
 
       return state
 

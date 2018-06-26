@@ -1,10 +1,33 @@
-import React from 'react'
+import React, { Component } from 'react';
 import { connect } from 'react-redux'
 
-const UsersView = () => (
-    <main>
-        Usernames will be here
-    </main>
-)
+class UsersView extends Component {
+    render() {
+        const {
+            messages,
+        } = this.props
 
-export default connect()(UsersView)
+        return (
+            <div>
+                <leftbar>
+                    <p>online users</p>
+                    <ul>
+                        {messages.filter(this.renderMessage)}
+                    </ul>
+                </leftbar>
+            </div>
+        )
+    }
+    renderMessage(message, idx) {
+        return (
+            <li key={idx}>
+                <pre>{message}</pre>
+            </li>
+        )
+    }
+}
+const mapStateToProps = state => ({
+    messages: state.messages.log,
+})
+
+export default connect(mapStateToProps)(UsersView)
