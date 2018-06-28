@@ -27,7 +27,7 @@ class FooterView extends Component {
   }
 }
 const mapStateToProps = state => ({
-  messages: state.messages.log.reverse(),
+  messages: state.messages.log,
 })
 
 export default connect(mapStateToProps)(FooterView)

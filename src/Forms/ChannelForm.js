@@ -26,7 +26,7 @@ const ChannelForm = props => {
 
 const validate = ({ channel }) => {
     const errors = {}
-    if (channel === "") {
+    if (!channel) {
         errors.channel = 'missing channel name'
     }
     return errors

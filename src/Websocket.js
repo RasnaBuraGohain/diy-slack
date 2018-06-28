@@ -83,7 +83,6 @@ class Websocket extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  messages: state.messages.log,
   name: state.connection.name,
   id: state.connection.id,
 })

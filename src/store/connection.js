@@ -4,7 +4,7 @@ const initialState = {
   connected: false,
   id: null,
   name: null,
-  users: null,
+  users: [],
 
 }
 

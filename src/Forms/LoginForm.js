@@ -26,7 +26,7 @@ const LoginForm = props => {
 
 const validate = ({ username }) => {
     const errors = {}
-    if (username === "") {
+    if (!username) {
         errors.username = 'missing username'
     }
     return errors
@@ -45,7 +45,7 @@ export default reduxForm({
     validate,
     onSubmit,
     initialValues: {
-        username: "rasna",
+        username: "Rasna",
 
     },
 })(LoginForm)

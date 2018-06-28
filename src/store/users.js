@@ -11,7 +11,7 @@ export const reducer = (state = initialState, action) => {
         return {
           users: [
             ...state.users,
-            { id: action.payload.id, connected: true }
+            { id: action.payload.id, name: null, connected: true }
           ],
         }
       }
@@ -25,15 +25,16 @@ export const reducer = (state = initialState, action) => {
           }),
         }
       }
-
-      if (action.payload.command === 'users' && action.payload.id === 'id') {
+      if (action.payload.command === 'name') {
         return {
-          users: [
-            ...state.users,
-            { name: action.payload.name, id: action.payload.id }
-          ],
+          users: state.users.map(user => {
+            return user.id === action.payload.id && user.name === action.payload.name
+              ? { ...user, connected: true }
+              : user
+          }),
         }
       }
+
 
       return state
 
