@@ -11,7 +11,7 @@ export const reducer = (state = initialState, action) => {
         return {
           users: [
             ...state.users,
-            { id: action.payload.id, name: null, connected: true }
+            { id: action.payload.id, connected: true }
           ],
         }
       }
@@ -26,13 +26,12 @@ export const reducer = (state = initialState, action) => {
         }
       }
 
-      if (action.payload.command === 'name') {
+      if (action.payload.command === 'users' && action.payload.id === 'id') {
         return {
-          users: state.users.filter(user => {
-            return user.id === action.payload.id && user.name === action.payload.name
-              ? { ...user, connected: true }
-              : user
-          }),
+          users: [
+            ...state.users,
+            { name: action.payload.name, id: action.payload.id }
+          ],
         }
       }
 

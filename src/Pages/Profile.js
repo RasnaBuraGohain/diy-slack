@@ -20,7 +20,7 @@ const Profile = ({ username }) => (
 
 const mapStateToProps = state => ({
     username: state.connection.username,
-    channel: state.connection.channel,
+    channels: state.connection.channels,
 })
 
 

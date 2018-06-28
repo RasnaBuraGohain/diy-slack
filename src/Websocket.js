@@ -34,7 +34,6 @@ class Websocket extends Component {
     } = this.state
 
     const examples = [
-      '{ "command": "echo", "payload": "this will be sent back" }',
       '{ "command": "name", "name": "olmo" }',
       '{ "command": "users" }',
       '{ "command": "join", "channel": "#test" }',
