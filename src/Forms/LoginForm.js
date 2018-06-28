@@ -21,8 +21,8 @@ const LoginForm = props => {
                 <button type="submit">LOGIN</button>
             </div>
         </form>
-    );
-};
+    )
+}
 
 const validate = ({ username }) => {
     const errors = {}

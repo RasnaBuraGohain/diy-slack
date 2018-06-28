@@ -62,7 +62,7 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
-  location: state.location,
+  location: state.router.pathname,
   messages: state.messages.log,
   connected: state.connection.connected,
   disconnected: !state.connection.connected,

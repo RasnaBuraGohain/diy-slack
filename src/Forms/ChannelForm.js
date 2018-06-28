@@ -18,7 +18,7 @@ const ChannelForm = props => {
                 </div>
             </div>
             <div>
-                <button type="submit">Channel</button>
+                <button type="submit">Join</button>
             </div>
         </form>
     );
