@@ -1,10 +1,15 @@
-import { open, close, message } from './websocket'
+import { open, message } from './websocket'
 
 const initialState = {
   connected: false,
+  received: [],
   id: null,
-  name: null,
+  name: '',
   users: [],
+  nameIds: [],
+  channels: [],
+  currentUser: '',
+  currentChannel: '',
 
 }
 
@@ -16,33 +21,51 @@ export const reducer = (state = initialState, action) => {
         connected: true,
       }
     case message:
-      if (action.error) {
-        return state
+      if (action.payload.error === true) {
+        let msg = "Error: " + action.payload.info;
+        return {
+          ...state,
+          received: [...state.received, msg]
+        }
       }
 
-      if (action.payload.command === "id") {
-        return {
-          ...state,
-          id: action.payload.id,
+      if (action.payload.command) {
+        switch (action.payload.command) {
+          case 'connect':
+            let userId = "New user id: " + action.payload.id;
+            let nameId = action.payload.id.toString();
+            return {
+              ...state,
+              received: [...state.received, userId],
+              nameIds: [...state.nameIds, nameId]
+            }
+          case 'name':
+            let newUser = action.payload.name + " is now online";
+            return {
+              ...state,
+              received: [...state.received, newUser],
+              users: [...state.users, action.payload.name]
+            }
+          case 'join':
+            let channel = "Channel " + action.payload.channel;
+            return {
+              ...state,
+              received: [...state.received, channel],
+              channels: [...state.channels, action.payload.channel]
+            }
+          case 'message':
+            let newMsg = action.payload.message + " from " + action.payload.id;
+            return {
+              ...state,
+              received: [...state.received, newMsg]
+            }
+          default:
+            return state;
         }
       }
-      if (action.payload.command === "name") {
-        return {
-          ...state,
-          name: action.payload.name,
-        }
-      }
-      if (action.payload.command === "users") {
-        return {
-          ...state,
-          users: action.payload.users,
-        }
-      }
-      return state
-
-    case close:
-      return initialState
+      break;
     default:
       return state;
   }
+  return state;
 }
