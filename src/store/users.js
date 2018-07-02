@@ -25,19 +25,14 @@ export const reducer = (state = initialState, action) => {
           }),
         }
       }
-      if (action.payload.command === 'name') {
+      if (action.payload.command === 'users') {
+        let msg = JSON.stringify(action.payload.users)
         return {
-          users: state.users.map(user => {
-            return user.id === action.payload.id && user.name === action.payload.name
-              ? { ...user, connected: true }
-              : user
-          }),
+          users: [...state.users, msg]
         }
+      } else {
+        return state
       }
-
-
-      return state
-
     case close:
       return initialState
 

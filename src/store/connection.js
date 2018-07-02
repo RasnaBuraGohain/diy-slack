@@ -32,7 +32,7 @@ export const reducer = (state = initialState, action) => {
       if (action.payload.command) {
         switch (action.payload.command) {
           case 'connect':
-            let userId = "New user id: " + action.payload.id;
+            let userId = action.payload.id;
             let nameId = action.payload.id.toString();
             return {
               ...state,
@@ -40,14 +40,14 @@ export const reducer = (state = initialState, action) => {
               nameIds: [...state.nameIds, nameId]
             }
           case 'name':
-            let newUser = action.payload.name + " is now online";
+            let username = action.payload.name;
             return {
               ...state,
-              received: [...state.received, newUser],
+              received: [...state.received, username],
               users: [...state.users, action.payload.name]
             }
           case 'join':
-            let channel = "Channel " + action.payload.channel;
+            let channel = action.payload.channel;
             return {
               ...state,
               received: [...state.received, channel],
