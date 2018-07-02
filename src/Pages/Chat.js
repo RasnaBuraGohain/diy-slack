@@ -10,7 +10,7 @@ class Chat extends Component {
 
     render() {
         const {
-            sendMessage, user, id, name
+            sendMessage, user
         } = this.state
 
         const {
@@ -26,7 +26,7 @@ class Chat extends Component {
                     <div className="sidebar">
                         Your User info:
                 <hr />
-                        {'ID : ' + id + ' Name : ' + name}
+                        {user}
                     </div>
                     <div>
                         Send message to:

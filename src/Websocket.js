@@ -45,8 +45,7 @@ class Websocket extends Component {
     const {
       dispatch,
       disconnected,
-      name,
-      id,
+      user,
     } = this.props
 
     return (
@@ -61,7 +60,7 @@ class Websocket extends Component {
         <div className="sidebar">
           Your User info:
             <hr />
-          {'ID : ' + id + ' Name : ' + name}
+          {user}
         </div>
         <div>
           Send message:
