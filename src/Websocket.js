@@ -85,6 +85,10 @@ class Websocket extends Component {
 const mapStateToProps = (state) => ({
   name: state.connection.name,
   id: state.connection.id,
+  messages: state.messages.log,
+  users: state.connection.users,
+  channels: state.connection.channels,
+  disconnected: !state.connection.connected,
 })
 
 export default connect(mapStateToProps)(Websocket);

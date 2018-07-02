@@ -68,7 +68,8 @@ const mapStateToProps = state => ({
   disconnected: !state.connection.connected,
   name: state.connection.name,
   id: state.connection.id,
-  users: state.users.users,
+  users: state.connection.users,
+  channels: state.connection.channels,
 })
 
 export default connect(mapStateToProps)(App);

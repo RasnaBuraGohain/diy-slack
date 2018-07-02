@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import Users from 'Pages/Users'
-import Channel from 'Pages/Channel'
+import ChannelForm from 'Forms/ChannelForm'
 
 
 const Profile = ({ username }) => (
@@ -10,7 +10,7 @@ const Profile = ({ username }) => (
         <p>Here you can -</p>
         <ul>
             <li><b> See  <Users /></b></li>
-            <li><b>Create <Channel /></b> </li>
+            <li><b>Create <ChannelForm /></b> </li>
         </ul>
 
         <h1>Delete account</h1>

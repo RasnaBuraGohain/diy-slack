@@ -5,88 +5,62 @@ import { send } from '../store/websocket'
 class Chat extends Component {
     constructor() {
         super()
-        this.state = { input: '' }
-    }
-
-    renderExample = (message) => {
-        const handler = event => {
-            this.props.dispatch({ type: send, payload: JSON.parse(message) })
-            this.setState({
-                input: message,
-            })
-        }
-
-        return (
-            <li>
-                <code>{message}</code>
-                <button className="try"
-                    disabled={this.props.disconnected}
-                    onClick={handler}>
-                    try
-          </button>
-            </li>
-        )
+        this.state = { sendMessage: '', user: '' }
     }
 
     render() {
         const {
-            input,
+            sendMessage, user, id, name
         } = this.state
-
-        const examples = [
-            '{ "command": "echo", "payload": "this will be sent back" }',
-            '{ "command": "name", "name": "olmo" }',
-            '{ "command": "users" }',
-            '{ "command": "join", "channel": "#test" }',
-            '{ "command": "channels" }',
-            '{ "command": "message", "channel": "#test", "message": "hello world!" }',
-            '{ "command": "part", "channel": "#test" }',
-        ]
 
         const {
             dispatch,
-            disconnected,
-            name,
-            id,
-        } = this.props
+            disconnected
+        } = this.props;
 
         return (
             <div className="App">
                 <div>
                     <h1>Chat Room</h1>
-                    <p>An example of a call would be to send:</p>
-                    <ul>
-                        {examples.map(this.renderExample)}
-                    </ul>
-                </div>
-                <div className="sidebar">
-                    Your User info:
-            <hr />
-                    {'ID : ' + id + ' Name : ' + name}
-                </div>
-                <div>
-                    Send message:
-          <textarea
-                        value={input}
-                        onChange={(e) => this.setState({ input: e.target.value })} placeholder="Write your message here..." >
-                    </textarea>
+                    <hr />
+                    <div className="sidebar">
+                        Your User info:
+                <hr />
+                        {'ID : ' + id + ' Name : ' + name}
+                    </div>
+                    <div>
+                        Send message to:
+                    <textarea
+                            value={user}
+                            onChange={(e) => this.setState({ user: e.target.value })}
+                        />
+                        <textarea
+                            value={sendMessage}
+                            onChange={(e) => this.setState({ sendMessage: e.target.value })} placeholder="Write your message here..." >
+                        </textarea>
 
-                    <button onClick={() => { dispatch({ type: send, payload: JSON.parse(input) }) }}
-                        disabled={disconnected}>
-                        SEND
-          </button>
-                </div>
+                        <button onClick={() => {
+                            let newtext = "{\"command\": \"message\", \"user\":\"" +
+                                user + "\", \"message\":\"" + sendMessage + "\"}";
+                            dispatch({ type: send, payload: newtext })
+                        }}
+                            disabled={disconnected}>
+                            SEND
+                    </button>
+                    </div>
 
+                </div>
             </div>
-        );
+        )
     }
-
 }
 
 const mapStateToProps = (state) => ({
     messages: state.messages.log,
     name: state.connection.name,
     id: state.connection.id,
+    users: state.connection.users,
+    disconnected: !state.connection.connected,
 })
 
 export default connect(mapStateToProps)(Chat);
