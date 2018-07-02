@@ -12,14 +12,11 @@ const Profile = ({ username }) => (
             <li><b> See  <Users /></b></li>
             <li><b>Create <Channel /></b> </li>
         </ul>
-
-        <h1>Delete account</h1>
-        <p>Warning, this will permanently delete your account. Your invitation code remains invalidated.</p>
     </main>
 )
 
 const mapStateToProps = state => ({
-    username: state.connection.username,
+    name: state.connection.name,
     channel: state.connection.channel,
 })
 

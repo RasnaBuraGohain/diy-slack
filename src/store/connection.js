@@ -1,15 +1,13 @@
-import { open, message } from './websocket'
+import { open, close, message } from './websocket'
 
 const initialState = {
   connected: false,
   received: [],
   id: null,
   name: '',
-  users: [],
   nameIds: [],
+  users: [],
   channels: [],
-  currentUser: '',
-  currentChannel: '',
 
 }
 
@@ -20,12 +18,12 @@ export const reducer = (state = initialState, action) => {
         ...state,
         connected: true,
       }
+
     case message:
       if (action.payload.error === true) {
-        let msg = "Error: " + action.payload.info;
         return {
           ...state,
-          received: [...state.received, msg]
+          received: [...state.received, action.payload.info]
         }
       }
 
@@ -37,35 +35,37 @@ export const reducer = (state = initialState, action) => {
             return {
               ...state,
               received: [...state.received, userId],
-              nameIds: [...state.nameIds, nameId]
-            }
+              nameIds: [...state.usernameIds, nameId]
+            };
           case 'name':
-            let username = action.payload.name;
+            const newName = action.payload.name;
             return {
               ...state,
-              received: [...state.received, username],
+              received: [...state.received, newName],
               users: [...state.users, action.payload.name]
             }
           case 'join':
-            let channel = action.payload.channel;
+            const channel = action.payload.channel;
             return {
               ...state,
               received: [...state.received, channel],
               channels: [...state.channels, action.payload.channel]
             }
           case 'message':
-            let newMsg = action.payload.message + " from " + action.payload.id;
+            const newMsg = action.payload.message + " from " + action.payload.id;
             return {
               ...state,
               received: [...state.received, newMsg]
             }
           default:
-            return state;
+            return state
         }
       }
-      break;
+      return state
+    case close:
+      return initialState
+
     default:
       return state;
   }
-  return state;
 }

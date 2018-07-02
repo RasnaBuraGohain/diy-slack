@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import Users from 'Pages/Users'
+import Users from 'Components/UsersList'
 import ChannelForm from 'Forms/ChannelForm'
 
 

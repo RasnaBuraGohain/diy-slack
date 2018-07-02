@@ -26,9 +26,8 @@ export const reducer = (state = initialState, action) => {
         }
       }
       if (action.payload.command === 'users') {
-        let msg = JSON.stringify(action.payload.users)
         return {
-          users: [...state.users, msg]
+          users: [...state.users, action.payload.users]
         }
       } else {
         return state

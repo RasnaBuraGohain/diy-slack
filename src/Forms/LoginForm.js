@@ -3,7 +3,7 @@ import { Field, reduxForm } from 'redux-form'
 import { send } from 'store/websocket'
 
 const LoginForm = props => {
-    const { handleSubmit } = props;
+    const { handleSubmit } = props
     return (
         <form onSubmit={handleSubmit}>
             <div>
@@ -26,7 +26,7 @@ const LoginForm = props => {
 
 const validate = ({ username }) => {
     const errors = {}
-    if (!username) {
+    if (!username && username === '') {
         errors.username = 'missing username'
     }
     return errors

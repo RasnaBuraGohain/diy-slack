@@ -9,6 +9,7 @@ import NotFound from './Pages/NotFound'
 import Home from './Pages/Home'
 import Profile from './Pages/Profile'
 import LoginForm from './Forms/LoginForm'
+import ChannelForm from './Forms/ChannelForm';
 
 
 class App extends Component {
@@ -17,6 +18,7 @@ class App extends Component {
       connected,
       name,
       id,
+      channel,
     } = this.props
 
     if (!connected) {
@@ -48,11 +50,29 @@ class App extends Component {
         </div>
       )
     }
-
+    if (!channel) {
+      return (
+        <div>
+          <div className="App">
+            <ChannelForm />
+            <hr />
+            <DisconnectButton />
+            <hr />
+          </div>
+          <div className="sidebar">
+            Your User ID
+            <hr />
+            {id}
+          </div>
+          <Footer />
+        </div>
+      )
+    }
     return (
       <Router routes={{
         '/': Home,
         '/profile': Profile,
+        '/channel': ChannelForm,
         'error': NotFound,
       }} />
     )

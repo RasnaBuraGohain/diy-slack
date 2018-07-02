@@ -6,7 +6,7 @@ class UsersList extends PureComponent {
         const {
             users
         } = this.props;
-        let list = users.map((user, idx) =>
+        const list = users.map((user, idx) =>
             (<li key={idx}>
                 <button>
                     {user}

@@ -1,24 +1,13 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form'
 import { send } from 'store/websocket'
-import { push } from 'redux-first-routing';
 
 const ChannelForm = props => {
-    const { handleSubmit, channels, dispatch } = props;
-    const list = channels.map((channel, idx) => (
-        <li key={idx}>
-            <button onClick={() => {
-                dispatch(push("/channels"));
-            }}>
-                {channel}
-            </button>
-        </li >
-    ));
+    const { handleSubmit } = props
     return (
         <form onSubmit={handleSubmit}>
             <div>
                 <label>Channel</label>
-                <li> {list} </li>
                 <div>
                     <Field
                         name="channel"
@@ -44,7 +33,7 @@ const validate = ({ channel }) => {
 }
 
 const onSubmit = ({ channel }, dispatch) => {
-    const command = JSON.stringify({
+    const command = ({
         command: "join",
         channel: '#' + channel,
     })
