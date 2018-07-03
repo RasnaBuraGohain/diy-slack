@@ -83,8 +83,8 @@ const mapStateToProps = (state) => ({
   name: state.connection.name,
   id: state.connection.id,
   messages: state.messages.log,
-  users: state.connection.users,
-  channels: state.connection.channels,
+  users: state.users.users,
+  channels: state.channels.channels,
   disconnected: !state.connection.connected,
 })
 

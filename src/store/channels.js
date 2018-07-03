@@ -11,19 +11,19 @@ export const reducer = (state = initialState, action) => {
         return {
           channels: [
             ...state.channels,
-            { join: action.payload.join, connected: true }
+            action.payload.channel,
           ],
         }
       }
-      if (action.payload.command === 'part') {
-        return {
-          channels: state.channels.map(channel => {
-            return channel.join === action.payload.join
-              ? { ...channel, connected: false }
-              : channel
-          }),
-        }
-      }
+      /*      if (action.payload.command === 'part') {
+              return {
+                channels: state.channels.map(channel => {
+                  return channel.join === action.payload.join
+                    ? { ...channel, connected: false }
+                    : channel
+                }),
+              }
+            }*/
       return state
 
     case close:

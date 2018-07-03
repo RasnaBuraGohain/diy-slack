@@ -9,8 +9,8 @@ class ChannelsList extends PureComponent {
     } = this.props;
     const list = channels.map((channel, idx) =>
       (<li key={idx}>
-        <button className="userslist">
-          {channel.id}
+        <button className="userlist">
+          {channel}
         </button>
       </li >
       ))
