@@ -20,7 +20,7 @@ export const reducer = (state = initialState, action) => {
         return {
           users: state.users.map(user => {
             return user.id === action.payload.id
-              ? { ...user, connected: false }
+              ? { ...user, name: state.name, connected: false }
               : user
           }),
         }
