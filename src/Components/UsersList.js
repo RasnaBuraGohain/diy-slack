@@ -8,9 +8,9 @@ class UsersList extends PureComponent {
         } = this.props;
         const list = users.map((user, idx) =>
             (<li key={idx}>
-                <button className="userlist">
+                <p className="userlist">
                     {user.name}
-                </button>
+                </p>
             </li >
             ))
         return (

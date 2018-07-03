@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { send } from '../store/websocket'
+import { send, message } from '../store/websocket'
 import UsersList from '../Components/UsersList';
 
 class Chat extends Component {
@@ -9,6 +9,7 @@ class Chat extends Component {
         this.state = {
             sendMessage: '',
             user: '',
+
         }
     }
 
@@ -16,6 +17,7 @@ class Chat extends Component {
         const {
             sendMessage,
             user,
+
         } = this.state
 
         const {
@@ -34,8 +36,7 @@ class Chat extends Component {
                     Send message to:
                     <input
                         value={user}
-                        onChange={(e) => this.setState({ user: e.target.value })}
-                    />
+                        onChange={(e) => this.setState({ user: e.target.value })} placeholder="Name..." />
                     <textarea
                         value={sendMessage}
                         onChange={(e) => this.setState({ sendMessage: e.target.value })} placeholder="Write your message here..." >
@@ -43,16 +44,22 @@ class Chat extends Component {
 
                     <button onClick={() => {
                         let text = {
-                            "command": "message", "user": "" +
-                                user + "", "message": "" + sendMessage + ""
+                            command: "message",
+                            user: "" + user + "",
+                            message: "" + sendMessage + ""
                         }
                         dispatch({ type: send, payload: text })
+                        let received = {
+                            command: "message",
+                            user: "" + user + "",
+                            message: "" + sendMessage + ""
+                        }
+                        dispatch({ type: message, payload: received })
                     }}
                         disabled={disconnected}>
                         SEND
                     </button>
                 </div>
-
             </div>
         )
     }

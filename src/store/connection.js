@@ -31,7 +31,6 @@ export const reducer = (state = initialState, action) => {
           name: action.payload.name,
         }
       }
-
       return state
 
     case close:

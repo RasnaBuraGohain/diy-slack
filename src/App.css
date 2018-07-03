@@ -42,7 +42,7 @@ button {
   border-radius: 5px;
   color: white;
 }
-button.userlist {
+p.userlist {
   background: linear-gradient(to bottom, rgb(23, 123, 156) 0%,rgb(91, 117, 94) 44%,rgba(96, 131, 143) 100%);
   border-radius: 5px;
   color: white;
