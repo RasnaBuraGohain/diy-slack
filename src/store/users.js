@@ -25,13 +25,19 @@ export const reducer = (state = initialState, action) => {
           }),
         }
       }
-      if (action.payload.command === 'users') {
+      if (action.payload.command === 'name') {
         return {
-          users: [...state.users, action.payload.users]
+          users: state.users.map(user => {
+            return user.id === action.payload.id && user.name === action.payload.name
+              ? { ...user, connected: true }
+              : user
+          }),
         }
-      } else {
-        return state
       }
+
+
+      return state
+
     case close:
       return initialState
 

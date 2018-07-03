@@ -12,7 +12,7 @@ export const reducer = (state = initialState, action) => {
           channels: [
             ...state.channels,
             { join: action.payload.join, connected: true }
-          ]
+          ],
         }
       }
       if (action.payload.command === 'part') {
@@ -21,7 +21,7 @@ export const reducer = (state = initialState, action) => {
             return channel.join === action.payload.join
               ? { ...channel, connected: false }
               : channel
-          })
+          }),
         }
       }
       return state

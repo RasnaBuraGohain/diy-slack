@@ -62,7 +62,7 @@ class App extends Component {
           <div className="sidebar">
             Your User ID
             <hr />
-            {id}
+            {id + name}
           </div>
           <Footer />
         </div>
