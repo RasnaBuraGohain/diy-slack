@@ -26,7 +26,7 @@ export const reducer = (state = initialState, action) => {
           id: action.payload.id,
         }
       }
-      if (action.payload.command === "name") {
+      if (action.payload.command === "name" && action.payload.id === state.id) {
         return {
           ...state,
           name: action.payload.name,

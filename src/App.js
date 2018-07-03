@@ -18,7 +18,7 @@ class App extends Component {
       connected,
       name,
       id,
-      channel,
+
     } = this.props
 
     if (!connected) {
@@ -50,24 +50,7 @@ class App extends Component {
         </div>
       )
     }
-    if (!channel) {
-      return (
-        <div>
-          <div className="App">
-            <ChannelForm />
-            <hr />
-            <DisconnectButton />
-            <hr />
-          </div>
-          <div className="sidebar">
-            Your User ID
-            <hr />
-            {id + name}
-          </div>
-          <Footer />
-        </div>
-      )
-    }
+
     return (
       <Router routes={{
         '/': Home,

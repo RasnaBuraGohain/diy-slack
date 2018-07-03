@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { send } from './store/websocket'
+import UsersList from './Components/UsersList';
 
 class Websocket extends Component {
   constructor() {
@@ -45,7 +46,8 @@ class Websocket extends Component {
     const {
       dispatch,
       disconnected,
-      user,
+      id,
+      name,
     } = this.props
 
     return (
@@ -60,7 +62,9 @@ class Websocket extends Component {
         <div className="sidebar">
           Your User info:
             <hr />
-          {user}
+          {'ID: ' + id + ' Name: ' + name}
+          <hr />
+          {UsersList}
         </div>
         <div>
           Send message:
