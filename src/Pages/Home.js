@@ -1,9 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import Websocket from '../Websocket'
+//import Websocket from '../Websocket'
 import chat from './chat.svg'
 import Footer from './Footer'
 import ChannelsList from '../Components/ChannelsList';
+import Chat from './Chat';
 //import Users from './Users'
 
 const HomeView = () => (
@@ -13,10 +14,8 @@ const HomeView = () => (
         </img>
         <br />
         <div >
-            <Websocket />
-
+            <Chat />
             <ChannelsList />
-
             <Footer />
         </div>
     </div>

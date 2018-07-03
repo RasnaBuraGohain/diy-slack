@@ -19,7 +19,7 @@ class ChannelsList extends PureComponent {
         <ChannelForm />
         <hr />
         <div>Channels list:
-                    <ul>
+            <ul>
             {list}
           </ul>
         </div>
