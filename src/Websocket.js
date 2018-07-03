@@ -46,8 +46,7 @@ class Websocket extends Component {
     const {
       dispatch,
       disconnected,
-      id,
-      name,
+
     } = this.props
 
     return (
@@ -59,13 +58,8 @@ class Websocket extends Component {
             {examples.map(this.renderExample)}
           </ul>
         </div>
-        <div className="sidebar">
-          Your User info:
-            <hr />
-          {'ID: ' + id + ' Name: ' + name}
-          <hr />
-          {UsersList}
-        </div>
+        <hr />
+        <UsersList />
         <div>
           Send message:
           <textarea

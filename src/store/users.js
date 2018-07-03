@@ -28,8 +28,8 @@ export const reducer = (state = initialState, action) => {
       if (action.payload.command === 'name') {
         return {
           users: state.users.map(user => {
-            return user.id === action.payload.id && user.name === action.payload.name
-              ? { ...user, connected: true }
+            return user.id === action.payload.id
+              ? { ...user, name: action.payload.name }
               : user
           }),
         }

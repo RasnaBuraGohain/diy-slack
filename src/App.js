@@ -10,6 +10,7 @@ import Home from './Pages/Home'
 import Profile from './Pages/Profile'
 import LoginForm from './Forms/LoginForm'
 import ChannelForm from './Forms/ChannelForm';
+import UsersList from './Components/UsersList';
 
 
 class App extends Component {
@@ -17,7 +18,6 @@ class App extends Component {
     const {
       connected,
       name,
-      id,
 
     } = this.props
 
@@ -41,11 +41,8 @@ class App extends Component {
             <DisconnectButton />
             <hr />
           </div>
-          <div className="sidebar">
-            Your User ID
-            <hr />
-            {id}
-          </div>
+          <hr />
+          <UsersList />
           <Footer />
         </div>
       )

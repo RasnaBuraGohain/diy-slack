@@ -42,6 +42,11 @@ button {
   border-radius: 5px;
   color: white;
 }
+button.userlist {
+  background: linear-gradient(to bottom, rgb(23, 123, 156) 0%,rgb(91, 117, 94) 44%,rgba(96, 131, 143) 100%);
+  border-radius: 5px;
+  color: white;
+}
 button:hover, button:active {
   background:linear-gradient(to bottom, rgba(246,248,249,1) 0%,rgba(229,235,238,1) 50%,rgba(215,222,227,1) 51%,rgba(245,247,249,1) 100%);
   color: rgb(0, 0, 0);

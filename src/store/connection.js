@@ -4,7 +4,6 @@ const initialState = {
   connected: false,
   id: null,
   name: null,
-  users: [],
 
 }
 
@@ -32,12 +31,7 @@ export const reducer = (state = initialState, action) => {
           name: action.payload.name,
         }
       }
-      if (action.payload.command === "users") {
-        return {
-          ...state,
-          users: action.payload.users,
-        }
-      }
+
       return state
 
     case close:

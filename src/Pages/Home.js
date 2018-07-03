@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import Websocket from '../Websocket'
 import chat from './chat.svg'
 import Footer from './Footer'
-import ChannelForm from '../Forms/ChannelForm';
+import ChannelsList from '../Components/ChannelsList';
 //import Users from './Users'
 
 const HomeView = () => (
@@ -14,9 +14,9 @@ const HomeView = () => (
         <br />
         <div >
             <Websocket />
-            <div className='leftbar'>
-                <ChannelForm />
-            </div>
+
+            <ChannelsList />
+
             <Footer />
         </div>
     </div>

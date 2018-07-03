@@ -8,8 +8,8 @@ class UsersList extends PureComponent {
         } = this.props;
         const list = users.map((user, idx) =>
             (<li key={idx}>
-                <button>
-                    {user}
+                <button className="userlist">
+                    {user.name}
                 </button>
             </li >
             ))
@@ -26,7 +26,7 @@ class UsersList extends PureComponent {
     }
 }
 const mapStateToProps = (state) => ({
-    users: state.connection.users
+    users: state.users.users
 })
 
 export default connect(mapStateToProps)(UsersList);
