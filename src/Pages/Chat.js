@@ -50,15 +50,13 @@ class Chat extends Component {
                             message: "" + sendMessage + ""
                         }
                         dispatch({ type: send, payload: text })
-                        let received = {
-                            user: "" + user + "",
-                            message: "" + sendMessage + ""
-                        }
-                        dispatch({ type: message, payload: received })
+
                     }}
                         disabled={disconnected}>
                         SEND
                     </button>
+                    <hr />
+                    {"Typing: " + sendMessage}
                 </div>
             </div>
         )
