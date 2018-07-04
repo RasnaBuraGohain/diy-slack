@@ -37,11 +37,12 @@ class Chat extends Component {
                     <input
                         value={user}
                         onChange={(e) => this.setState({ user: e.target.value })} placeholder="Name..." />
+                    <br />
                     <textarea
                         value={sendMessage}
                         onChange={(e) => this.setState({ sendMessage: e.target.value })} placeholder="Write your message here..." >
                     </textarea>
-
+                    <br />
                     <button onClick={() => {
                         let text = {
                             command: "message",
@@ -50,7 +51,6 @@ class Chat extends Component {
                         }
                         dispatch({ type: send, payload: text })
                         let received = {
-                            command: "message",
                             user: "" + user + "",
                             message: "" + sendMessage + ""
                         }
