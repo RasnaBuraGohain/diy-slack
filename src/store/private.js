@@ -10,10 +10,7 @@ export const reducer = (state = initialState, action) => {
       if (action.payload.command === "message") {
         return {
           log: [
-            action.payload.message
-            + " from "
-            + action.payload.id
-            + " to " + action.payload.user,
+            action.payload,
             ...state.log]
         }
       }

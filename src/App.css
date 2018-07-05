@@ -41,7 +41,7 @@ button.chatbutton {
   background: linear-gradient(to bottom, rgb(1, 9, 102) 0%,rgb(37, 75, 202) 44%,rgba(93, 97, 141) 100%);
   border-radius: 5px;
   color: white;
-}
+  }
 button.disabled {
   opacity: 0.6;
   cursor: not-allowed;
@@ -66,7 +66,7 @@ ul {
   font-size: 0.95rem;
 }
 .sidebar {
-  background: rgba(159, 245, 0, 0.514);
+  background: rgba(202, 204, 98, 0.26);
   color: rgb(0, 0, 0);
   position: absolute;
     right: 20px;
@@ -79,7 +79,7 @@ ul {
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 .leftbar {
-  background: rgba(159, 245, 0, 0.514);
+  background:rgba(202, 204, 98, 0.26);
   color: rgb(0, 0, 0);
   position: absolute;
     left: 20px;
@@ -102,6 +102,7 @@ ul {
   font-size: 14px;
   border-radius: 10px;
   list-style: none;
+ 
 }
 .Msg{
   max-width: 500px;
@@ -112,7 +113,5 @@ ul {
   text-align: right;
   font-size: 14px;
   border-radius: 10px;
-  
 }
-  
  

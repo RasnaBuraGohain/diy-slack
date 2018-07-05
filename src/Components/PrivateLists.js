@@ -9,7 +9,7 @@ class PrivateList extends PureComponent {
     const list = message.map((message, idx) =>
       (<li className="chatlist" key={idx}>
         <p>
-          {message}
+          {message.message}
         </p>
       </li >
       ))

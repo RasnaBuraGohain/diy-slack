@@ -7,7 +7,6 @@ import ConnectButton from './Components/ConnectButton'
 import Footer from './Pages/Footer'
 import NotFound from './Pages/NotFound'
 import Home from './Pages/Home'
-import Profile from './Pages/Profile'
 import LoginForm from './Forms/LoginForm'
 import ChannelForm from './Forms/ChannelForm';
 import UsersList from './Components/UsersList';
@@ -51,7 +50,6 @@ class App extends Component {
     return (
       <Router routes={{
         '/': Home,
-        '/profile': Profile,
         '/channel': ChannelForm,
         'error': NotFound,
       }} />
