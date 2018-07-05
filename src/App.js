@@ -70,6 +70,7 @@ const mapStateToProps = state => ({
   id: state.connection.id,
   users: state.users.users,
   channels: state.channels.channels,
+  message: state.private.log,
 })
 
 export default connect(mapStateToProps)(App);

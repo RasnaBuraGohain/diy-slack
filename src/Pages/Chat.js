@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { send, message } from '../store/websocket'
-import UsersList from '../Components/UsersList';
+import { send } from '../store/websocket'
+import PrivateLists from '../Components/PrivateLists';
 
 class Chat extends Component {
     constructor() {
@@ -9,7 +9,6 @@ class Chat extends Component {
         this.state = {
             sendMessage: '',
             user: '',
-
         }
     }
 
@@ -29,25 +28,25 @@ class Chat extends Component {
             <div className="App">
                 <div>
                     <h1>Chat Room</h1>
-                    <hr />
-                    <UsersList />
                 </div>
-                <div>
+                <div className="Chat" >
                     Send message to:
                     <input
                         value={user}
                         onChange={(e) => this.setState({ user: e.target.value })} placeholder="Name..." />
-                    <br />
+                    <hr />
+                    <span><PrivateLists /></span>
+                    <hr />
                     <textarea
                         value={sendMessage}
                         onChange={(e) => this.setState({ sendMessage: e.target.value })} placeholder="Write your message here..." >
                     </textarea>
-                    <br />
-                    <button onClick={() => {
+
+                    <button className="chatbutton" onClick={() => {
                         let text = {
                             command: "message",
-                            user: "" + user + "",
-                            message: "" + sendMessage + ""
+                            user: user,
+                            message: sendMessage,
                         }
                         dispatch({ type: send, payload: text })
 
@@ -55,8 +54,6 @@ class Chat extends Component {
                         disabled={disconnected}>
                         SEND
                     </button>
-                    <hr />
-                    {"Typing: " + sendMessage}
                 </div>
             </div>
         )
@@ -69,6 +66,7 @@ const mapStateToProps = (state) => ({
     id: state.connection.id,
     users: state.users.users,
     disconnected: !state.connection.connected,
+    message: state.private.log,
 })
 
 export default connect(mapStateToProps)(Chat);
