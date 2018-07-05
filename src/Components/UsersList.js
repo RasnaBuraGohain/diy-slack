@@ -1,18 +1,21 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
+import User from './User'
 
 class UsersList extends PureComponent {
     render() {
         const {
             users
         } = this.props;
-        const list = users.map((user, idx) =>
-            (<li key={idx}>
-                <p className="userlist">
-                    {user.name}
-                </p>
-            </li >
-            ))
+
+        const list = users.filter(user => user.name && user.connected).map((user, idx) => {
+            console.log(user)
+            return (
+                <li key={idx}>
+                    <User id={user.id} />
+                </li>
+            )
+        })
         return (
             <div className="sidebar">
                 <div>Users online:
