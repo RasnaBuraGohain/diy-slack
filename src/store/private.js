@@ -8,7 +8,14 @@ export const reducer = (state = initialState, action) => {
   switch (action.type) {
     case message:
       if (action.payload.command === "message") {
-        return { log: [action.payload.message + " from " + action.payload.id, ...state.log] }
+        return {
+          log: [
+            action.payload.message
+            + " from "
+            + action.payload.id
+            + " to " + action.payload.user,
+            ...state.log]
+        }
       }
       return state
     case close:
