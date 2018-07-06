@@ -1,23 +1,25 @@
 import React, { PureComponent } from 'react';
+import User from './User';
 import { connect } from 'react-redux';
-
 
 class PrivateList extends PureComponent {
   render() {
     const {
-      message
+      message,
+
     } = this.props;
     const list = message.map((message, idx) =>
       (<li className="chatlist" key={idx}>
-        <p>
-          {message.message}
-        </p>
+        <b className="name">
+          <User id={message.id} />
+        </b>
+        : {message.message}
       </li >
       ))
     return (
       <div className="Msg">
         <div>Chat Box
-        {list}
+          {list}
         </div>
 
       </div>
