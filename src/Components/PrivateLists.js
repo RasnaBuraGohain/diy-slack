@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 
+
 class PrivateList extends PureComponent {
   render() {
     const {
@@ -16,7 +17,7 @@ class PrivateList extends PureComponent {
     return (
       <div className="Msg">
         <div>Chat Box
-            {list}
+        {list}
         </div>
 
       </div>

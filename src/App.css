@@ -114,4 +114,10 @@ ul {
   font-size: 14px;
   border-radius: 10px;
 }
+b {
+  font-size: 20px;
+  font-style: italic;
+  color: rgb(255, 0, 0);
+  font-variant-caps: titling-caps;
+}
  

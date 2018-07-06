@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { send } from '../store/websocket'
 import PrivateLists from '../Components/PrivateLists';
-import User from '../Components/User';
 
 class Chat extends Component {
     constructor() {
@@ -22,15 +21,18 @@ class Chat extends Component {
 
         const {
             dispatch,
-            disconnected
+            disconnected,
+            name,
         } = this.props;
 
         return (
             <div className="App">
                 <div>
-                    <h1>Chat Room <User /></h1>
+                    <h1>Chat Room </h1>
+                    <p>Welcome <b>{name}</b> </p>
                 </div>
                 <div className="Chat" >
+
                     Send message to :
                     <input
                         value={user}

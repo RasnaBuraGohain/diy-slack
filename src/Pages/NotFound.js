@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 
-const NotFound = ({ dispatch }) => (
+const NotFound = () => (
     <main>
         <h1>Error</h1>
         <p>Page not found, please return to the Welcome Page.</p>
