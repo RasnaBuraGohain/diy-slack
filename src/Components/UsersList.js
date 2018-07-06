@@ -13,6 +13,7 @@ class UsersList extends PureComponent {
                 <li key={idx}>
                     <button>
                         <User id={user.id} />
+
                     </button>
                 </li>
             )

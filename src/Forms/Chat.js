@@ -34,9 +34,9 @@ class Chat extends Component {
                 </div>
                 <div className="Chat" >
                     Send message to :
-                    <h>
-                        <UsersList user={user} />
-                        {(e) => this.props.onClick({ user: e.target.value })} </h>
+                    <button onClick={(e) => this.props.onClick({ user: e.target.value })} >
+                        <UsersList value={user} />
+                    </button>
                     <hr />
                     <span><PrivateLists /></span>
                     <hr />
@@ -58,7 +58,7 @@ class Chat extends Component {
                         SEND
                     </button>
                 </div>
-            </div>
+            </div >
         )
     }
 }
