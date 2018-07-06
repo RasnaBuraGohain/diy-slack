@@ -9,8 +9,6 @@ import NotFound from './Pages/NotFound'
 import Home from './Pages/Home'
 import LoginForm from './Forms/LoginForm'
 import ChannelForm from './Forms/ChannelForm';
-import UsersList from './Components/UsersList';
-
 
 class App extends Component {
   render() {
@@ -41,7 +39,6 @@ class App extends Component {
             <hr />
           </div>
           <hr />
-          <UsersList />
           <Footer />
         </div>
       )

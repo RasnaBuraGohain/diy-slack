@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { send } from '../store/websocket'
 import PrivateLists from '../Components/PrivateLists';
+import UsersList from '../Components/UsersList';
+//import UsersList from '../Components/UsersList';
 
 class Chat extends Component {
     constructor() {
         super()
         this.state = {
-            sendMessage: 'Hello',
+            sendMessage: 'Hello, how are you?',
             user: 'Rasna',
         }
     }
@@ -16,7 +18,6 @@ class Chat extends Component {
         const {
             sendMessage,
             user,
-
         } = this.state
 
         const {
@@ -28,15 +29,14 @@ class Chat extends Component {
         return (
             <div className="App">
                 <div>
-                    <h1>Chat Room </h1>
-                    <p>Welcome <b>{name}</b> </p>
+                    <h1>Welcome <b>{name}</b>,</h1>
+                    to Chat Room
                 </div>
                 <div className="Chat" >
-
                     Send message to :
-                    <input
-                        value={user}
-                        onChange={(e) => this.setState({ user: e.target.value })} placeholder="Name..." />
+                    <h>
+                        <UsersList user={user} />
+                        {(e) => this.props.onClick({ user: e.target.value })} </h>
                     <hr />
                     <span><PrivateLists /></span>
                     <hr />
@@ -53,7 +53,6 @@ class Chat extends Component {
                             message: sendMessage,
                         }
                         dispatch({ type: send, payload: text })
-
                     }}
                         disabled={disconnected}>
                         SEND

@@ -9,16 +9,17 @@ class UsersList extends PureComponent {
         } = this.props;
 
         const list = users.filter(user => user.name && user.connected).map((user, idx) => {
-            console.log(user)
             return (
                 <li key={idx}>
-                    <User id={user.id} />
+                    <button>
+                        <User id={user.id} />
+                    </button>
                 </li>
             )
         })
         return (
-            <div className="sidebar">
-                <div>Users online:
+            <div>
+                <div>
                     <ul>
                         {list}
                     </ul>

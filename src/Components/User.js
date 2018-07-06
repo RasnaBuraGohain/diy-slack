@@ -14,8 +14,6 @@ class User extends PureComponent {
   }
 }
 
-
-
 const mapStateToProps = (state, props) => {
   const matchingUsers = state.users.users.filter(user => user.id === props.id)
   return {

@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import chat from './chat.svg'
 import Footer from './Footer'
 import ChannelsList from '../Components/ChannelsList';
-import Chat from './Chat';
+import Chat from '../Forms/Chat';
 import UsersList from '../Components/UsersList';
 //import Users from './Users'
 
@@ -16,7 +16,10 @@ const HomeView = () => (
         <br />
         <div >
             <Chat />
-            <UsersList />
+            <div className="sidebar">
+                <b>Online:</b>
+                <UsersList />
+            </div>
             <ChannelsList />
             <Footer />
         </div>
