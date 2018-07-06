@@ -58,6 +58,9 @@ footer {
   position:sticky;
    bottom:0;
    width:100%;
+   height: 100px;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
 }
 ul {
   list-style-type: circle;
@@ -102,7 +105,6 @@ ul {
   font-size: 14px;
   border-radius: 10px;
   list-style: none;
- 
 }
 .Msg{
   max-width: 500px;
@@ -113,6 +115,9 @@ ul {
   text-align: right;
   font-size: 14px;
   border-radius: 10px;
+  height: 200px;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
 }
 b {
   font-size: 20px;
