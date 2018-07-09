@@ -11,9 +11,8 @@ class UsersList extends PureComponent {
         const list = users.filter(user => user.name && user.connected).map((user, idx) => {
             return (
                 <li key={idx}>
-                    <button>
+                    <button >
                         <User id={user.id} />
-
                     </button>
                 </li>
             )
