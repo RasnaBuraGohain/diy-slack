@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { send } from '../store/websocket'
 import PrivateLists from '../Components/PrivateLists';
+import SendToList from '../Components/SendToList';
 
 class Chat extends Component {
     constructor() {
@@ -11,7 +12,6 @@ class Chat extends Component {
             user: '',
         }
     }
-
     render() {
         const {
             sendMessage,
@@ -31,11 +31,13 @@ class Chat extends Component {
                     to Chat Room
                 </div>
                 <div className="Chat" >
+                    <div>
+                        <SendToList id={user} />
+                    </div>
                     Send message to :
                     <input
                         value={user}
                         onChange={(e) => this.setState({ user: e.target.value })} placeholder="Name..." />
-                    <hr />
                     <hr />
                     <span><PrivateLists /></span>
                     <hr />
@@ -48,6 +50,7 @@ class Chat extends Component {
                     <button className="chatbutton" onClick={() => {
                         let text = {
                             command: "message",
+                            id: name,
                             user: user,
                             message: sendMessage,
                         }

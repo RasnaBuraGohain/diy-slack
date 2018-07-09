@@ -17,7 +17,7 @@ const HomeView = () => (
         <div >
             <Chat />
             <div className="sidebar">
-                <b>Online:</b>
+                <label>Online:</label>
                 <UsersList />
             </div>
             <ChannelsList />
