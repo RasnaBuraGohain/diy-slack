@@ -1,4 +1,4 @@
-import { open, close, message } from './websocket'
+import { open, close, message, send } from './websocket'
 import { loop, Cmd } from 'redux-loop';
 
 const initialState = {
@@ -33,10 +33,17 @@ export const reducer = (state = initialState, action) => {
         }
       }
       if (action.payload.command === "name" && action.payload.id === state.id) {
-        return {
+        const newState = {
           ...state,
           name: action.payload.name,
         }
+
+        const nextAction = { type: send, payload: { command: "users" } }
+
+        return loop(
+          newState,
+          Cmd.action(nextAction)
+        )
       }
 
       return state
