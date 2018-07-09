@@ -8,9 +8,17 @@ class Chatmessages extends PureComponent {
       message,
     } = this.props
 
-    return (
-      <div>{message}</div>
+    const renderMessage = (message, idx) => (
+      <li key={idx}>
+        {message}
+      </li>
     )
+    return (
+      <div>
+
+        <ul>{message.map(renderMessage)}</ul>
+      </div>
+    );
   }
 }
 

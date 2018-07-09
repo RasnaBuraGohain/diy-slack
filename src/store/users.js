@@ -1,4 +1,6 @@
-import { message, close } from './websocket'
+import { message } from './websocket'
+import { loop, Cmd } from 'redux-loop';
+import { push } from 'redux-first-routing';
 
 const initialState = {
   users: [],
@@ -34,11 +36,23 @@ export const reducer = (state = initialState, action) => {
           }),
         }
       }
-
-      return state
-
-    case close:
-      return initialState
+      if (action.payload.command === 'users') {
+        return loop(
+          state,
+          Cmd.run(
+            (dispatch) => { dispatch(("Users: " + action.payload)) },
+            { args: [Cmd.dispatch] },
+          )
+        )
+      }
+      const newState = {
+        connected: true,
+        users: action.payload.users,
+      }
+      return loop(
+        newState,
+        Cmd.action(push('/home'))
+      )
 
     default:
       return state

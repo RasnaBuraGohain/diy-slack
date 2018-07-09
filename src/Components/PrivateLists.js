@@ -18,9 +18,9 @@ class PrivateList extends PureComponent {
       ))
     return (
       <div className="Msg">
-        <div>Chat Box
+        <label>#Chat Box#
           {list}
-        </div>
+        </label>
 
       </div>
     );

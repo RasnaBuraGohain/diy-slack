@@ -1,4 +1,5 @@
 import { open, close, message } from './websocket'
+import { loop, Cmd } from 'redux-loop';
 
 const initialState = {
   connected: false,
@@ -16,7 +17,13 @@ export const reducer = (state = initialState, action) => {
       }
     case message:
       if (action.error) {
-        return state
+        return loop(
+          state,
+          Cmd.run(
+            (dispatch) => { dispatch("Error: " + action.payload) },
+            { args: [Cmd.dispatch] },
+          )
+        )
       }
 
       if (action.payload.command === "id") {

@@ -5,13 +5,14 @@ import User from './User'
 class SendToList extends PureComponent {
   render() {
     const {
+      selectUser,
       users
     } = this.props;
 
     const list = users.filter(user => user.name && user.connected).map((user, idx) => {
       return (
         <ul key={idx}>
-          <button onClick={this.props.user}>
+          <button onClick={selectUser}>
             <User id={user.id} />
           </button>
         </ul >
