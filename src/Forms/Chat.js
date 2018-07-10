@@ -11,7 +11,17 @@ class Chat extends Component {
             sendMessage: 'Hello, how are you?',
             user: '',
         }
+        this.handleChange = this.handleChange.bind(this)
+        this.handleClick = this.handleClick.bind(this)
     }
+    handleChange(event) {
+        this.setState({ user: event.target.value })
+    }
+
+    handleClick(user) {
+        this.setState({ user: user.name })
+    }
+
     render() {
         const {
             sendMessage,
@@ -32,19 +42,19 @@ class Chat extends Component {
                 </div>
                 <div className="Chat" >
                     <div>
-                        <SendToList selectUser={(e) => this.setState({ user: e.target.value })} />
+                        <SendToList selectUser={this.handleClick} />
                     </div>
                     Send message to :
                     <input
                         value={this.state.user}
-                        onChange={(e) => this.setState({ user: e.target.value })} placeholder="Name..." />
+                        onChange={this.handleChange} placeholder="Name..." />
                     <hr />
                     <span><PrivateLists /></span>
                     <hr />
                     <textarea
                         rows="2" cols="45"
                         value={sendMessage}
-                        onChange={(e) => this.setState({ sendMessage: e.target.value })} placeholder="Write your message here..." >
+                        onChange={(event) => this.setState({ sendMessage: event.target.value })} placeholder="Write your message here..." >
                     </textarea>
 
                     <button className="chatbutton" onClick={() => {
