@@ -9,7 +9,7 @@ class User extends PureComponent {
     } = this.props
 
     return (
-      <div>{name}</div>
+      <span>{name}</span>
     )
   }
 }

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { send } from '../store/websocket'
 import PrivateLists from '../Components/PrivateLists';
-import SendToList from '../Components/SendToList';
 
 class Chat extends Component {
     constructor() {
@@ -21,19 +20,23 @@ class Chat extends Component {
     handleClick(user) {
         this.setState({ user: user.name })
     }
-    renderExample = (message) => {
+    renderExample = (message, index) => {
         const handler = event => {
             this.setState({ sendMessage: message })
         }
 
         return (
-            <li>
-                <button className="try"
-                    disabled={this.props.disconnected}
-                    onClick={handler}>
-                    {message}
-                </button>
-            </li>
+            <div key={index}>
+                <li>
+                    <button className="try"
+                        disabled={this.props.disconnected}
+                        onClick={handler}>
+                        {message}
+                    </button>
+                </li>
+            </div>
+
+
         )
     }
     render() {
@@ -50,6 +53,7 @@ class Chat extends Component {
             dispatch,
             disconnected,
             name,
+            users,
         } = this.props;
 
         return (
@@ -59,17 +63,15 @@ class Chat extends Component {
                     to Chat Room
                 </div>
                 <div className="Chat" >
-                    <div>
-                        <SendToList selectUser={this.handleClick} />
-                    </div>
+
                     <label>Messages :</label>
                     <ul>
                         {examples.map(this.renderExample)}
                     </ul>
                     Send message to :
-                    <input
-                        value={this.state.user}
-                        onChange={this.handleChange} placeholder="Name..." />
+                    <select value={this.state.user} onChange={this.handleChange}>
+                        {users.map(user => <option key={user.name} value={user.name}>{user.name}</option>)}
+                    </select>
                     <hr />
                     <span><PrivateLists /></span>
                     <hr />
