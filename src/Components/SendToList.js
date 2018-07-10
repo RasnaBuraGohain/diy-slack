@@ -12,7 +12,7 @@ class SendToList extends PureComponent {
     const list = users.filter(user => user.name && user.connected).map((user, idx) => {
       return (
         <ul key={idx}>
-          <button type="button" onClick={() => selectUser(user)}>
+          <button className="try" type="button" onClick={() => selectUser(user)}>
             <User id={user.id} />
           </button>
         </ul >

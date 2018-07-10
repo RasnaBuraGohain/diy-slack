@@ -3,10 +3,12 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-body {
+html, body {
   font-family:'Courier New', Courier, monospace;
   background-image: url("./Images/6.jpg");
     background-repeat: no-repeat;
     background-size: 100%;
   text-align: center;
+  height:100%;
+  
 }

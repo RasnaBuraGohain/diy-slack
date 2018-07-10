@@ -21,13 +21,31 @@ class Chat extends Component {
     handleClick(user) {
         this.setState({ user: user.name })
     }
+    renderExample = (message) => {
+        const handler = event => {
+            this.setState({ sendMessage: message })
+        }
 
+        return (
+            <li>
+                <button className="try"
+                    disabled={this.props.disconnected}
+                    onClick={handler}>
+                    {message}
+                </button>
+            </li>
+        )
+    }
     render() {
         const {
             sendMessage,
             user,
         } = this.state
-
+        const examples = [
+            'Hi',
+            'Hello',
+            'How are you ?',
+        ]
         const {
             dispatch,
             disconnected,
@@ -44,6 +62,10 @@ class Chat extends Component {
                     <div>
                         <SendToList selectUser={this.handleClick} />
                     </div>
+                    <label>Messages :</label>
+                    <ul>
+                        {examples.map(this.renderExample)}
+                    </ul>
                     Send message to :
                     <input
                         value={this.state.user}
@@ -84,4 +106,4 @@ const mapStateToProps = (state) => ({
     message: state.private.log,
 })
 
-export default connect(mapStateToProps)(Chat);
+export default connect(mapStateToProps)(Chat)

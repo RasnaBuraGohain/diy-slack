@@ -135,3 +135,8 @@ button.logout {
   right: 20px;
   bottom: 20px;
 }
+button.try {
+  background: rgba(143, 204, 167, 0.644);
+  border-radius: 5px;
+  color: rgb(0, 0, 0);
+}
