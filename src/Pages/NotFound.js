@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 const NotFound = () => (
     <main>
         <h1>Error</h1>
-        <p>Page not found, please return to the Welcome Page.</p>
+        <p>Page not found, please return to the Home Page.</p>
     </main>
 )
 

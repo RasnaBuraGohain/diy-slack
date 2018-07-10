@@ -13,21 +13,17 @@ class UsersList extends PureComponent {
                 <li key={idx}>
                     <p>
                         <User id={user.id} />
-
                     </p>
                 </li>
             )
         })
         return (
             <div>
-                <div>
-                    <ul>
-                        {list}
-                    </ul>
-                </div>
-
+                <ul>
+                    {list}
+                </ul>
             </div>
-        );
+        )
     }
 }
 const mapStateToProps = (state) => ({

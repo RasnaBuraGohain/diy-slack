@@ -5,7 +5,6 @@ const initialState = {
   connected: false,
   id: null,
   name: null,
-
 }
 
 export const reducer = (state = initialState, action) => {
@@ -25,7 +24,6 @@ export const reducer = (state = initialState, action) => {
           )
         )
       }
-
       if (action.payload.command === "id") {
         return {
           ...state,
@@ -37,17 +35,13 @@ export const reducer = (state = initialState, action) => {
           ...state,
           name: action.payload.name,
         }
-
         const nextAction = { type: send, payload: { command: "users" } }
-
         return loop(
           newState,
           Cmd.action(nextAction)
         )
       }
-
       return state
-
     case close:
       return initialState
     default:

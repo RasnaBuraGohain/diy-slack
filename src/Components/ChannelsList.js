@@ -18,12 +18,12 @@ class ChannelsList extends PureComponent {
       <div className="leftbar">
         <ChannelForm />
         <hr />
-        <div>Channels list:
-            <ul>
+        <div>
+          <label>Channels list:</label>
+          <ul>
             {list}
           </ul>
         </div>
-
       </div>
     );
   }

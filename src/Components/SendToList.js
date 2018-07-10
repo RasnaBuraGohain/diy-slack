@@ -20,14 +20,11 @@ class SendToList extends PureComponent {
     })
     return (
       <div>
-        <div>
-          <ul>
-            {list}
-          </ul>
-        </div>
-
-      </div >
-    );
+        <ul>
+          {list}
+        </ul>
+      </div>
+    )
   }
 }
 const mapStateToProps = (state) => ({

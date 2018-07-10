@@ -6,8 +6,8 @@ class PrivateList extends PureComponent {
   render() {
     const {
       message,
+    } = this.props
 
-    } = this.props;
     const list = message.map((message, idx) =>
       (<li className="chatlist" key={idx}>
         <b className="name">
@@ -18,10 +18,8 @@ class PrivateList extends PureComponent {
       ))
     return (
       <div className="Msg">
-        <label>#Chat Box#
-          {list}
-        </label>
-
+        <label>#Chat Box#</label>
+        {list}
       </div>
     );
   }

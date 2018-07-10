@@ -15,7 +15,6 @@ class Chatmessages extends PureComponent {
     )
     return (
       <div>
-
         <ul>{message.map(renderMessage)}</ul>
       </div>
     );

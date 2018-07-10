@@ -32,7 +32,7 @@ class Chat extends Component {
                 </div>
                 <div className="Chat" >
                     <div>
-                        <SendToList selectUser={(evt) => this.setState({ user: evt.target.value })} />
+                        <SendToList selectUser={(e) => this.setState({ user: e.target.value })} />
                     </div>
                     Send message to :
                     <input

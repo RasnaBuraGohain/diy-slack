@@ -24,17 +24,14 @@ class Router extends Component {
                     const key = keys[index];
                     params[key.name] = match[index + 1]
                 }
-
                 const Component = routes[path]
                 return <Component {...params} {...otherProps} />
             }
         }
-
         const Component = routes.error
         return <Component {...otherProps} />
     }
 }
-
 const mapStateToProps = (state) => ({
     location: state.router.pathname,
 })

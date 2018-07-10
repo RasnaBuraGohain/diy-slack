@@ -1,5 +1,4 @@
 import { message } from './websocket'
-import { loop, Cmd } from 'redux-loop';
 
 const initialState = {
   users: [],
@@ -26,6 +25,7 @@ export const reducer = (state = initialState, action) => {
           }),
         }
       }
+
       if (action.payload.command === 'name') {
         return {
           users: state.users.map(user => {
@@ -37,18 +37,16 @@ export const reducer = (state = initialState, action) => {
       }
 
       if (action.payload.command === 'users') {
-        console.log(12345, action.payload.users)
-        return state
-        /*{
+        return {
           users: action.payload.users.map(user => ({
             id: user.id,
             name: user.name,
             connected: true,
           }))
-        }*/
+        }
       }
-
       return state
+
     default:
       return state
   }
