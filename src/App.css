@@ -118,6 +118,7 @@ ul {
   height: 200px;
   overflow-y: scroll;
   scroll-behavior: smooth;
+  
 }
 b {
   font-style: italic;
@@ -139,4 +140,9 @@ button.try {
   background: rgba(143, 204, 167, 0.644);
   border-radius: 5px;
   color: rgb(0, 0, 0);
+}
+label {
+  font-style: normal;
+  font-size: medium;
+  font-weight: bolder;
 }
