@@ -36,7 +36,7 @@ class Chat extends Component {
                     </div>
                     Send message to :
                     <input
-                        value={user}
+                        value={this.state.user}
                         onChange={(e) => this.setState({ user: e.target.value })} placeholder="Name..." />
                     <hr />
                     <span><PrivateLists /></span>

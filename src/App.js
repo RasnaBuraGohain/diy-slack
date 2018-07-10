@@ -34,11 +34,8 @@ class App extends Component {
         <div>
           <div className="App">
             <LoginForm />
-            <hr />
             <DisconnectButton />
-            <hr />
           </div>
-          <hr />
           <Footer />
         </div>
       )

@@ -3,8 +3,8 @@ import { connect } from 'react-redux'
 import { disconnect } from 'store/websocket'
 
 const DisconnectButton = ({ dispatch }) => (
-    <button onClick={() => { dispatch({ type: disconnect }) }}>
-        Disconnect
+    <button className="logout" onClick={() => { dispatch({ type: disconnect }) }}>
+        Log Out
     </button >
 )
 

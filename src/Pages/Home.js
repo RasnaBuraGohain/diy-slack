@@ -6,12 +6,13 @@ import Footer from './Footer'
 import ChannelsList from '../Components/ChannelsList';
 import Chat from '../Forms/Chat';
 import UsersList from '../Components/UsersList';
+import DisconnectButton from '../Components/DisconnectButton';
 //import Users from './Users'
 
 const HomeView = () => (
     <div >
         <h1>Welcome to Diy Slack</h1>
-        <img src={chat} alt="welcome" width="800" height="200">
+        <img src={chat} alt="welcome" width="800" height="170">
         </img>
         <br />
         <div >
@@ -22,6 +23,7 @@ const HomeView = () => (
             </div>
             <ChannelsList />
             <Footer />
+            <DisconnectButton />
         </div>
     </div>
 )
