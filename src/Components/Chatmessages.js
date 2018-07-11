@@ -2,22 +2,42 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 
 class Chatmessages extends PureComponent {
+  constructor() {
+    super()
+    this.state = { sendMessage: '' }
+  }
 
-  render() {
-    const {
-      message,
-    } = this.props
-
-    const renderMessage = (message, idx) => (
-      <li key={idx}>
-        {message}
-      </li>
+  renderExample = (message, index) => {
+    const handler = event => {
+      this.setState({ sendMessage: message })
+    }
+    return (
+      <div key={index}>
+        <li>
+          <button className="try"
+            disabled={this.props.disconnected}
+            onClick={handler}>
+            {message}
+          </button>
+        </li>
+      </div>
     )
+  }
+  render() {
+
+    const examples = [
+      'Hi',
+      'How are you ?',
+      'I am doing good, thank you.',
+    ]
     return (
       <div>
-        <ul>{message.map(renderMessage)}</ul>
+        <label> Messages :</label>
+        <ul>
+          {examples.map(this.renderExample)}
+        </ul>
       </div>
-    );
+    )
   }
 }
 

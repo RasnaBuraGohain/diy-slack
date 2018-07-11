@@ -7,7 +7,7 @@ class Chat extends Component {
     constructor() {
         super()
         this.state = {
-            sendMessage: 'Hello, how are you?',
+            sendMessage: 'Welcome to Chat App',
             user: '',
         }
         this.handleChange = this.handleChange.bind(this)
@@ -46,8 +46,8 @@ class Chat extends Component {
         } = this.state
         const examples = [
             'Hi',
-            'Hello',
             'How are you ?',
+            'I am doing good, thank you.',
         ]
         const {
             dispatch,

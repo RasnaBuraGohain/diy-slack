@@ -12,8 +12,9 @@ class PrivateList extends PureComponent {
       (<li className="chatlist" key={idx}>
         <b className="name">
           <User id={message.id} message />
-        </b>
-        : {message.message}
+        </b>: {message.message}
+        <hr />
+        <span> {message.send}</span>
       </li >
       ))
     return (
