@@ -6,18 +6,14 @@ const LoginForm = props => {
     const { handleSubmit } = props
     return (
         <form onSubmit={handleSubmit}>
-            <div>
+            <div className = "Login" >
                 <label>Username</label>
-                <div>
                     <Field
                         name="username"
                         component="input"
                         type="text"
                         placeholder="Username"
                     />
-                </div>
-            </div>
-            <div>
                 <button type="submit">LOGIN</button>
             </div>
         </form>

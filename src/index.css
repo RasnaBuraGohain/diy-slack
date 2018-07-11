@@ -4,11 +4,9 @@
   box-sizing: border-box;
 }
 html, body {
-  font-family:'Courier New', Courier, monospace;
+  font-family: 'Quicksand', sans-serif;
   background-image: url("./Images/6.jpg");
     background-repeat: no-repeat;
     background-size: 100%;
-  text-align: center;
-  height:100%;
-  
+    height:100%;
 }

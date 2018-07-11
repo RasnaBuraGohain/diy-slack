@@ -2,7 +2,6 @@ div {
   display: block;
 }
 main {
-  max-width: 600px;
   margin: 20px auto;
   border: 1px solid #AAA;
   border-top-right-radius: 80px;
@@ -13,7 +12,10 @@ main {
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019',GradientType=0 );
 }
-
+.Login {
+  display: grid;
+  padding: 10px;
+}
 .App {
   max-width: 600px;
   margin: 20px auto;
@@ -22,8 +24,8 @@ main {
   border-top-left-radius: 80px;
   border-bottom-right-radius: 80px;  
   background-color: rgb(255, 255, 255);
-  padding: 20px;
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  padding: 5%;
+  
 }
 
 button {
@@ -37,10 +39,10 @@ button:hover, button:active {
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 button.chatbutton {
-  background: linear-gradient(to bottom, rgb(1, 9, 102) 0%,rgb(37, 75, 202) 44%,rgba(93, 97, 141) 100%);
+  background: linear-gradient(to bottom, rgb(2, 15, 160) 0%,rgb(37, 75, 202) 44%,rgba(93, 97, 141) 100%);
   border-radius: 5px;
-  color: white;
   }
+  
 button.disabled {
   opacity: 0.6;
   cursor: not-allowed;
@@ -51,9 +53,8 @@ button.logout {
   bottom: 20px;
 }
 button.try {
-  background: hsla(162, 100%, 18%, 0.329);
+  background: hsla(212, 100%, 18%, 0.568);
   border-radius: 5px;
-  color: rgb(0, 0, 0);
 }
 p.userlist {
   background: linear-gradient(to bottom, rgb(242, 246, 247) 0%,rgb(167, 222, 247) 44%,rgb(94, 209, 247) 100%);
@@ -72,11 +73,10 @@ footer {
   scroll-behavior: smooth;
 }
 ul {
-  list-style-type: circle;
+  list-style-type: square;
   margin: 0;
   padding: 0;
-  font-size: 0.95rem;
-}
+  }
 .sidebar {
   background: rgba(202, 204, 98, 0.26);
   color: rgb(0, 0, 0);
@@ -104,33 +104,32 @@ ul {
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 .Chat {
-  max-width: 500px;
-  margin: 20px auto;
+  display: inline-grid;
+  width: 100%;
   border: 1px solid #AAA;
   background-color: rgba(121, 183, 202, 0.459);
   padding: 20px;
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-  text-align: right;
   font-size: 14px;
   border-radius: 10px;
-  list-style: none;
-}
+  }
 .Msg{
-  max-width: 500px;
-  margin: 20px auto;
-  border: 1px solid #AAA;
   background-color: rgba(255, 255, 255, 0.459);
   padding: 20px;
   text-align: right;
-  font-size: 14px;
+  font-size: 12px;
   border-radius: 10px;
   height: 200px;
   overflow-y: scroll;
   scroll-behavior: smooth;
-  display: flex;
+  display: inline-grid;
     flex-direction:column;
-  
+  }
+ul.examples {
+  display: inline-flex;
+  list-style: none;
 }
+
 b {
   font-style: italic;
   color: rgb(255, 0, 0);
@@ -146,4 +145,7 @@ label {
   font-style: normal;
   font-size: medium;
   font-weight: bolder;
+}
+code {
+  color: rgb(40, 110, 156);
 }
