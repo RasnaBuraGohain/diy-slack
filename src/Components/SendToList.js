@@ -18,6 +18,7 @@ class SendToList extends PureComponent {
         </ul >
       )
     })
+
     return (
       <div>
         <ul>
@@ -27,6 +28,7 @@ class SendToList extends PureComponent {
     )
   }
 }
+
 const mapStateToProps = (state) => ({
   users: state.users.users
 })

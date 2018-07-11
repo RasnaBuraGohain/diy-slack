@@ -44,7 +44,7 @@ export const middleware = endpoint => store => {
       default:
         break;
     }
-    return next(action);
+    return next(action)
   }
 }
 

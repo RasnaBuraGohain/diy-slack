@@ -8,7 +8,7 @@ import Footer from './Pages/Footer'
 import NotFound from './Pages/NotFound'
 import Home from './Pages/Home'
 import LoginForm from './Forms/LoginForm'
-import ChannelForm from './Forms/ChannelForm';
+import ChannelForm from './Forms/ChannelForm'
 
 class App extends Component {
   render() {
@@ -65,4 +65,4 @@ const mapStateToProps = state => ({
   message: state.private.log,
 })
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps)(App)

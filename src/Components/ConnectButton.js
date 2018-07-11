@@ -5,7 +5,7 @@ import { connect as websocketConnect } from 'store/websocket'
 const ConnectButton = ({ dispatch }) => (
   <button onClick={() => { dispatch({ type: websocketConnect }) }}>
     Connect
-    </button >
+  </button >
 )
 
 const mapStateToProps = (state) => ({

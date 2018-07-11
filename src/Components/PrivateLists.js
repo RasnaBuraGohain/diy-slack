@@ -1,6 +1,6 @@
-import React, { PureComponent } from 'react';
-import User from './User';
-import { connect } from 'react-redux';
+import React, { PureComponent } from 'react'
+import User from './User'
+import { connect } from 'react-redux'
 
 class PrivateList extends PureComponent {
   render() {
@@ -14,18 +14,19 @@ class PrivateList extends PureComponent {
           <User id={message.id} message />
         </b>: {message.message}
         <hr />
-        <span> {message.send}</span>
       </li >
       ))
+
     return (
       <div className="Msg">
         <label>#Chat Box#</label>
         <hr />
         {list}
       </div>
-    );
+    )
   }
 }
+
 const mapStateToProps = (state) => ({
   message: state.private.log
 })

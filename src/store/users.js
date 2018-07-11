@@ -12,7 +12,7 @@ export const reducer = (state = initialState, action) => {
           users: [
             ...state.users,
             { id: action.payload.id, name: null, connected: true }
-          ],
+          ]
         }
       }
 
@@ -22,7 +22,7 @@ export const reducer = (state = initialState, action) => {
             return user.id === action.payload.id
               ? { ...user, name: state.name, connected: false }
               : user
-          }),
+          })
         }
       }
 
@@ -32,7 +32,7 @@ export const reducer = (state = initialState, action) => {
             return user.id === action.payload.id
               ? { ...user, name: action.payload.name }
               : user
-          }),
+          })
         }
       }
 

@@ -17,6 +17,7 @@ class UsersList extends PureComponent {
                 </li>
             )
         })
+
         return (
             <div>
                 <ul>
