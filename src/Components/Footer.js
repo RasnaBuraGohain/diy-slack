@@ -10,8 +10,7 @@ class FooterView extends Component {
     return (
       <div>
         <footer>
-          <p>Connection activity:</p>
-          <ul>
+          <ul> Connection activity:
             {messages.map(this.renderMessage)}
           </ul>
         </footer>
@@ -21,7 +20,7 @@ class FooterView extends Component {
   renderMessage(message, idx) {
     return (
       <li key={idx}>
-        <pre>{message}</pre>
+        {message}
       </li>
     )
   }

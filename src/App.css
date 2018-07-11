@@ -65,6 +65,9 @@ p.userlist {
 footer {
   background-color: rgba(7, 7, 7, 0.767);
   color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: fixed;
    bottom:0;
    width:100%;

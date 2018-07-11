@@ -8,7 +8,6 @@ import DisconnectButton from '../Components/DisconnectButton'
 
 const Home = () => (
     <div >
-        
         <div >
             <Chat />
             <div className="sidebar">

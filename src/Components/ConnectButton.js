@@ -6,7 +6,7 @@ import chat from './chat.svg'
 const ConnectButton = ({ dispatch }) => (
   <div >
     <h1>Welcome to Diy Slack</h1>
-      <img src={chat} alt="welcome" width="800" height="170"></img>
+      <img src={chat} alt="welcome" width="233" height="150"></img>
     <br />
     <h2> You must first connect to <code>chat-backend</code></h2>
     <ul>
