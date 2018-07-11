@@ -14,6 +14,7 @@ class PrivateList extends PureComponent {
           <User id={message.id} message />
         </b>: {message.message}
         <hr />
+        {message.send}
       </li >
       ))
 
