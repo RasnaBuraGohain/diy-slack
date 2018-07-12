@@ -50,6 +50,7 @@ main {
   scroll-behavior: smooth;
   display: inline-grid;
     flex-direction:column;
+    list-style: none;
   }
 
   .leftbar {

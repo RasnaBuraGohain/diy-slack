@@ -70,7 +70,6 @@ class Chat extends Component {
                     <PrivateLists />
                     <hr />
                     <textarea
-                        rows="2" cols="45"
                         value={sendMessage}
                         onChange={(event) => this.setState({ sendMessage: event.target.value })} placeholder="Write your message here..." >
                     </textarea>
