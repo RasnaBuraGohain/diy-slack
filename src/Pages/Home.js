@@ -10,11 +10,12 @@ const Home = () => (
     <div >
         <div >
             <Chat />
-            <div className="sidebar">
-                <label>Online:</label>
+            <div className="leftbar">
+                <label>Online Users</label>
                 <UsersList />
+                <hr />
+                <ChannelsList />
             </div>
-            <ChannelsList />
             <Footer />
             <DisconnectButton />
         </div>

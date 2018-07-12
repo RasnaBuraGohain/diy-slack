@@ -17,7 +17,7 @@ class ChannelsList extends PureComponent {
     ))
 
     return (
-      <div className="leftbar">
+      <div >
         <ChannelForm />
         <hr />
         <div>
