@@ -11,7 +11,7 @@ export const reducer = (state = initialState, action) => {
         return {
           users: [
             ...state.users,
-            { id: action.payload.id, name: null, connected: true }
+            { id: action.payload.id, connected: true }
           ]
         }
       }
