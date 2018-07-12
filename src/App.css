@@ -12,10 +12,7 @@ main {
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019',GradientType=0 );
 }
-.Login {
-  display: grid;
-  padding: 10px;
-}
+
 .App {
   max-width: 600px;
   margin: 20px auto;
@@ -25,8 +22,64 @@ main {
   border-bottom-right-radius: 80px;  
   background-color: rgb(255, 255, 255);
   padding: 5%;
-  
 }
+
+.Login {
+  display: grid;
+  padding: 10px;
+}
+
+.Chat {
+  display: inline-grid;
+  width: 100%;
+  border: 1px solid #AAA;
+  background-color: rgba(121, 183, 202, 0.459);
+  padding: 20px;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  font-size: 14px;
+  border-radius: 10px;
+  }
+.Msg{
+  background-color: rgba(255, 255, 255, 0.459);
+  padding: 20px;
+  text-align: right;
+  font-size: 12px;
+  border-radius: 10px;
+  height: 200px;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  display: inline-grid;
+    flex-direction:column;
+  }
+
+  .leftbar {
+    background:rgba(56, 28, 27, 0.26);
+    color: rgb(0, 0, 0);
+    position: absolute;
+      left: 20px;
+      top: 20px;
+    margin: 10px auto;
+    border: 1px solid #AAA;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  }
+
+  footer {
+    background-color: rgba(7, 7, 7, 0.767);
+    color: white;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+     bottom:0;
+     width:100%;
+     height: 100px;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+  }
+
+/* all buttons*/
 
 button {
   background: linear-gradient(to bottom, rgba(169,3,41,1) 0%,rgba(143,2,34,1) 44%,rgba(109,0,25,1) 100%);
@@ -56,70 +109,21 @@ button.try {
   background: hsla(212, 100%, 18%, 0.568);
   border-radius: 5px;
 }
-p.userlist {
-  background: linear-gradient(to bottom, rgb(242, 246, 247) 0%,rgb(167, 222, 247) 44%,rgb(94, 209, 247) 100%);
-  border-radius: 5px;
-  color: rgb(0, 0, 0);
-}
+ /* all tags */
 
-footer {
-  background-color: rgba(7, 7, 7, 0.767);
-  color: white;
-  display: flex;
-  justify-content: center;
-  position: fixed;
-   bottom:0;
-   width:100%;
-   height: 100px;
-  overflow-y: scroll;
-  scroll-behavior: smooth;
-}
 ul {
   list-style-type: square;
   margin: 0;
   padding: 10px;
   }
 
-.leftbar {
-  background:rgba(56, 28, 27, 0.26);
-  color: rgb(0, 0, 0);
-  position: absolute;
-    left: 20px;
-    top: 20px;
-  margin: 10px auto;
-  border: 1px solid #AAA;
-  border-top-right-radius: 20px;
-  border-top-left-radius: 20px;
-  padding: 20px;
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-}
-.Chat {
-  display: inline-grid;
-  width: 100%;
-  border: 1px solid #AAA;
-  background-color: rgba(121, 183, 202, 0.459);
-  padding: 20px;
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-  font-size: 14px;
-  border-radius: 10px;
-  }
-.Msg{
-  background-color: rgba(255, 255, 255, 0.459);
-  padding: 20px;
-  text-align: right;
-  font-size: 12px;
-  border-radius: 10px;
-  height: 200px;
-  overflow-y: scroll;
-  scroll-behavior: smooth;
-  display: inline-grid;
-    flex-direction:column;
-  }
 ul.examples {
   display: inline-flex;
   list-style: none;
 }
-
+span.onlineusers{
+  color: rgb(5, 54, 145);
+}
 b {
   font-style: italic;
   color: rgb(255, 0, 0);

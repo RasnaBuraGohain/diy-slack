@@ -6,14 +6,14 @@ const LoginForm = props => {
     const { handleSubmit } = props
     return (
         <form onSubmit={handleSubmit}>
-            <div className = "Login" >
+            <div className="Login" >
                 <label>Username</label>
-                    <Field
-                        name="username"
-                        component="input"
-                        type="text"
-                        placeholder="Username"
-                    />
+                <Field
+                    name="username"
+                    component="input"
+                    type="text"
+                    placeholder="Enter a username.."
+                />
                 <button type="submit">LOGIN</button>
             </div>
         </form>
@@ -22,7 +22,7 @@ const LoginForm = props => {
 
 const validate = ({ username }) => {
     const errors = {}
-    if (!username && username === '') {
+    if (!username || username === '') {
         errors.username = 'missing username'
     }
     return errors

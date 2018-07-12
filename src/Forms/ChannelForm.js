@@ -13,7 +13,7 @@ const ChannelForm = props => {
                         name="channel"
                         component="input"
                         type="text"
-                        placeholder="Channel"
+                        placeholder="Channel Name"
                     />
                 </div>
             </div>

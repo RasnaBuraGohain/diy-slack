@@ -12,27 +12,28 @@ class Chat extends Component {
         }
         this.handleChange = this.handleChange.bind(this)
         this.handleClick = this.handleClick.bind(this)
-        }
-        handleChange(event) {
-            this.setState({ user: event.target.value })
+    }
+    handleChange(event) {
+        this.setState({ user: event.target.value })
+    }
+
+    handleClick(user) {
+        this.setState({ user: user.name })
+    }
+    renderExample = (message, index) => {
+        const handler = event => {
+            event.preventDefault()
+            this.setState({ sendMessage: message })
         }
 
-        handleClick(user) {
-            this.setState({ user: user.name })
-        }
-        renderExample = (message, index) => {
-            const handler = event => {
-                this.setState({ sendMessage: message })
-        }
-
-    return (
-        <li key={index}>
-            <button className="try"
-                disabled={this.props.disconnected}
-                onClick={handler}>
-                {message}
-            </button>
-        </li>
+        return (
+            <li key={index}>
+                <button className="try"
+                    disabled={this.props.disconnected}
+                    onClick={handler}>
+                    {message}
+                </button>
+            </li>
         )
     }
     render() {
@@ -52,43 +53,43 @@ class Chat extends Component {
             users,
         } = this.props;
 
-    return (
-        <div className="App">
-            <h1>Welcome <b>{name}</b>,</h1>
-            <h3>to the Chat Room</h3>
-        <div className="Chat" >
-            <label>Messages :</label>
-            <ul className = "examples">
-                {examples.map(this.renderExample)}
-            </ul>
-            Send message to :
-            <select value={this.state.user} onChange={this.handleChange}>
-                {users.map(user => <option key={user.name} value={user.name}>{user.name}</option>)}
-            </select>
-            <hr />
-            <PrivateLists />
-            <hr />
-            <textarea
-                rows="2" cols="45"
-                value={sendMessage}
-                onChange={(event) => this.setState({ sendMessage: event.target.value })} placeholder="Write your message here..." >
-            </textarea>
+        return (
+            <div className="App">
+                <h1>Welcome <b>{name}</b>,</h1>
+                <h3>to the Chat Room</h3>
+                <div className="Chat" >
+                    <label>Messages :</label>
+                    <ul className="examples">
+                        {examples.map(this.renderExample)}
+                    </ul>
+                    Send message to :
+                    <select value={this.state.user} onChange={this.handleChange}>
+                        {users.map(user => <option key={user.name} value={user.name}>{user.name}</option>)}
+                    </select>
+                    <hr />
+                    <PrivateLists />
+                    <hr />
+                    <textarea
+                        rows="2" cols="45"
+                        value={sendMessage}
+                        onChange={(event) => this.setState({ sendMessage: event.target.value })} placeholder="Write your message here..." >
+                    </textarea>
 
-            <button className="chatbutton" onClick={() => {
-                let text = {
-                    command: "message",
-                    id: name,
-                    user: user,
-                    message: sendMessage,
-                }
-                    dispatch({ type: send, payload: text })
-                }}
-                    disabled={disconnected}>
-                    SEND
+                    <button className="chatbutton" onClick={() => {
+                        let text = {
+                            command: "message",
+                            id: name,
+                            user: user,
+                            message: sendMessage,
+                        }
+                        dispatch({ type: send, payload: text })
+                    }}
+                        disabled={disconnected}>
+                        SEND
                 </button>
-            </div>
-        </div >
-    )
+                </div>
+            </div >
+        )
     }
 }
 
