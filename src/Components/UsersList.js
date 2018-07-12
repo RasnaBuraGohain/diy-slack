@@ -5,7 +5,7 @@ import User from './User'
 class UsersList extends PureComponent {
     render() {
         const {
-            users
+            users,
         } = this.props;
 
         const list = users.filter(user => user.name && user.connected).map((user, idx) => {
@@ -28,7 +28,8 @@ class UsersList extends PureComponent {
     }
 }
 const mapStateToProps = (state) => ({
-    users: state.users.users
+    users: state.users.users,
+
 })
 
 export default connect(mapStateToProps)(UsersList);

@@ -5,21 +5,28 @@ import ChannelsList from '../Components/ChannelsList'
 import Chat from '../Forms/Chat'
 import UsersList from '../Components/UsersList'
 import DisconnectButton from '../Components/DisconnectButton'
+import { send } from 'store/websocket'
 
-const Home = () => (
-    <div >
+const Home = ({ dispatch }) => {
+    return (
         <div >
-            <Chat />
-            <div className="leftbar">
-                <label>Online Users</label>
-                <UsersList />
-                <hr />
-                <ChannelsList />
+            <div >
+                <Chat />
+                <div className="leftbar">
+                    <button onClick={() => {
+                        dispatch({ type: send, payload: { command: "users" } })
+                    }}>
+                        Online Users
+                    </button>
+                    <UsersList />
+                    <hr />
+                    <ChannelsList />
+                </div>
+                <Footer />
+                <DisconnectButton />
             </div>
-            <Footer />
-            <DisconnectButton />
         </div>
-    </div>
-)
+    )
+}
 
 export default connect()(Home)

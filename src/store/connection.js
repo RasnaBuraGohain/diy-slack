@@ -1,5 +1,5 @@
 import { open, close, message, send } from './websocket'
-import { loop, Cmd } from 'redux-loop';
+import { loop, Cmd } from 'redux-loop'
 
 const initialState = {
   connected: false,
